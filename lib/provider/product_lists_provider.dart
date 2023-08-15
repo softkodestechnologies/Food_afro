@@ -105,33 +105,6 @@ class ProductListProvider with ChangeNotifier {
         price: 20,
         stars: 4,
         favourite: false),
-    ProductDisplayCard(
-        id: '5',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 3,
-        favourite: false),
-    ProductDisplayCard(
-        id: '6',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 2,
-        favourite: false),
-    ProductDisplayCard(
-        id: '7',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 1,
-        favourite: false),
   ];
 
   List<ProductDisplayCard> usercart = [];

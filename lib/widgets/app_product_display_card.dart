@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:food_afro_bean/util/app_color.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
 import 'package:food_afro_bean/widgets/app_button.dart';
-import 'package:food_afro_bean/widgets/app_image_icon_button.dart';
 import 'package:food_afro_bean/widgets/app_text.dart';
 
 class AppProductDisplayCard extends StatefulWidget {
@@ -14,7 +13,8 @@ class AppProductDisplayCard extends StatefulWidget {
     required this.description,
     required this.price,
     required this.stars,
-    required this.addToCart, required this.isfavourite,
+    required this.addToCart,
+    required this.isfavourite,
   });
   final String id;
   final String image;
@@ -31,7 +31,7 @@ class AppProductDisplayCard extends StatefulWidget {
 
 class _AppProductDisplayCardState extends State<AppProductDisplayCard> {
   // bool expand = false;
-  double _containerHeight = 450.0;
+  double _containerHeight = 390.0;
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
@@ -62,20 +62,26 @@ class _AppProductDisplayCardState extends State<AppProductDisplayCard> {
       onTap: () {
         //
       },
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 400),
+      child: Container(
         // color: expand ? AppColors.themeColor : null,
         height: _containerHeight, //? 550 : 450,
         // margin: const EdgeInsets.symmetric(horizontal: 5),
         width: widescreen ? 200 : media.width * .35,
+        color: AppColors.backgroundGray,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            Container(
+              color: Colors.amber,
+
               ///change to image network later this is for test use only
               width: widescreen ? 200 : media.width * .35,
               height: 300,
-              child: Image.asset(widget.image, fit: BoxFit.fill),
+              child: Image.asset(
+                widget.image,
+                fit: BoxFit.fitWidth,
+                width: 200,
+              ),
             ),
             const SizedBox(height: 10),
             TitleText(text: widget.title),
