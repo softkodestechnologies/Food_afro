@@ -11,3 +11,16 @@ class ResponsiveScreenView {
   static bool isMobile(BuildContext context) =>
       MediaQuery.of(context).size.width < 750;
 }
+
+
+ int rowNum({required int numofColumn, required int listLenght}) {
+      double rowIndexA = (listLenght / numofColumn);
+      int rowIndexB = (listLenght / numofColumn).floor();
+      
+   
+   if ( rowIndexA != rowIndexB){
+     return (rowIndexB+1);
+   }else{
+     return (rowIndexB);
+   }
+    }

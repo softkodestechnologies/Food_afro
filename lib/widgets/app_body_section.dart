@@ -3,6 +3,7 @@ import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:food_afro_bean/model/product_display_card.dart';
 import 'package:food_afro_bean/provider/product_lists_provider.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
+import 'package:food_afro_bean/widgets/app_ItemRowColumn.dart';
 import 'package:food_afro_bean/widgets/app_product_display_card.dart';
 import 'package:food_afro_bean/widgets/app_text.dart';
 import 'package:food_afro_bean/widgets/app_text_button.dart';
@@ -16,8 +17,6 @@ class AppBodySpliteSection extends StatelessWidget {
     this.buttontext,
     required this.function,
     required this.productList,
-    required this.mobileRow,
-    required this.widescreenRow,
   });
 
   final String title;
@@ -26,18 +25,33 @@ class AppBodySpliteSection extends StatelessWidget {
   final VoidCallback function;
   final List<ProductDisplayCard> productList;
   ////
-  final List<TrackSize> mobileRow;
-
-  final List<TrackSize> widescreenRow;
+  int numofRow({required int numofColumn, required int listLenght}) {
+    double rowIndexA = (listLenght / numofColumn);
+    int rowIndexB = (listLenght / numofColumn).floor();
+    if (rowIndexA != rowIndexB) {
+      return (rowIndexB + 1);
+    } else {
+      return (rowIndexB);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
     bool widescreen = (ResponsiveScreenView.isDesktop(context) ||
         ResponsiveScreenView.isTablet(context));
+    bool desktop = (ResponsiveScreenView.isDesktop(context));
+    bool tablet = (ResponsiveScreenView.isTablet(context));
     var provider = Provider.of<ProductListProvider>(context);
+
+    int numOfColumn = desktop
+        ? 4
+        : (tablet)
+            ? 3
+            : 2;
+
     return Container(
-      margin: const EdgeInsets.only(top: 20),
+      margin: const EdgeInsets.symmetric(vertical: 20),
       width: media.width * .9,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,63 +71,71 @@ class AppBodySpliteSection extends StatelessWidget {
           const SizedBox(height: 15),
           BodyText(text: description, maxLines: 2),
           const SizedBox(height: 15),
-
-          SizedBox(
-            height: 500,
-            width: media.width * .9,
-            child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: (media.width * .9 / 200).floor(),
-                mainAxisSpacing: 8.0,
-                crossAxisSpacing: 8.0,
-              ),
-              itemCount: 4,
-              itemBuilder: (context, index) {
-                return AppProductDisplayCard(
-                  id: productList[index].id,
-                  image: productList[index].image,
-                  title: productList[index].title,
-                  description: productList[index].description,
-                  price: productList[index].price,
-                  stars: productList[index].stars,
-                  addToCart: () {
-                    provider.addtocart(productList[index].id);
-                  },
-                  isfavourite: () {
-                    provider.isfavourite(productList[index].id);
-                  },
-                );
-              },
-            ),
+          AppGridWidget(
+            rowNum: numofRow(
+                numofColumn: numOfColumn, listLenght: productList.length),
+            columnNum: numOfColumn,
+            widgetList: provider.allproducts
+                .map((e) => AppProductDisplayCard(
+                      id: e.id,
+                      image: e.image,
+                      title: e.title,
+                      description: e.description,
+                      price: e.price,
+                      stars: e.stars,
+                      fav: e.favourite,
+                      addToCart: () {
+                        provider.addtocart(e.id);
+                      },
+                      isfavourite: () {
+                        provider.isfavourite(e.id);
+                      },
+                    ))
+                .toList(),
           )
-
-          ////////////////////////
-          // Align(
-          //   alignment: Alignment.center,
-          //   child: Wrap(
-          //     spacing: 20, runSpacing: 20,
-          //     // crossAxisAlignment: WrapCrossAlignment.start,
-          //     // alignment: WrapAlignment.spaceBetween,
-          // children: productList
-          //     .map(
-          //       (e) => AppProductDisplayCard(
-          //           image: e.image,
-          //           title: e.title,
-          //           description: e.description,
-          //           price: e.price,
-          //           stars: e.stars,
-          //           addToCart: () {}),
-          //     )
-          //     .toList(),
-          //   ),
-          // )
         ],
       ),
     );
   }
 }
 
+// class AppGridWidget extends StatelessWidget {
+//   final int rowNum;
+//   final int columnNum;
+//   final List<Widget> widgetList;
 
+//   const AppGridWidget({super.key, required this.rowNum, required this.columnNum, required this.widgetList});
+
+//   List<List<Widget>> _generateMatrix() {
+//     List<Widget> filledWidgets = List<Widget>.from(widgetList);
+//     for (int i = filledWidgets.length; i < rowNum * columnNum; i++) {
+//       filledWidgets.add(Container()); // Fill in missing positions with empty containers
+//     }
+
+//     List<List<Widget>> matrix = List.generate(rowNum, (index) {
+//       int startIndex = index * columnNum;
+//       return filledWidgets.sublist(startIndex, startIndex + columnNum);
+//     });
+
+//     return matrix;
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     List<List<Widget>> matrix = _generateMatrix();
+
+//     return Column(mainAxisSize: MainAxisSize.min,
+//       mainAxisAlignment: MainAxisAlignment.center,
+//       children: [
+//         for (var row in matrix)
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: row,
+//           ),
+//       ],
+//     );
+//   }
+// }
 
   // child: LayoutGrid(
             //   columnSizes: widescreen ? [auto, auto, auto, auto] : [auto, auto],
@@ -141,3 +163,56 @@ class AppBodySpliteSection extends StatelessWidget {
             //       )
             //       .toList(),
             // ),
+
+
+
+
+             // SizedBox(
+          //   height: 500,
+          //   width: media.width * .9,
+          //   child: GridView.builder(
+          //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          //       crossAxisCount: (media.width * .9 / 200).floor(),
+          //       mainAxisSpacing: 8.0,
+          //       crossAxisSpacing: 8.0,
+          //     ),
+          //     itemCount: 4,
+          //     itemBuilder: (context, index) {
+          //       return AppProductDisplayCard(
+          //         id: productList[index].id,
+          //         image: productList[index].image,
+          //         title: productList[index].title,
+          //         description: productList[index].description,
+          //         price: productList[index].price,
+          //         stars: productList[index].stars,
+          //         addToCart: () {
+          //           provider.addtocart(productList[index].id);
+          //         },
+          //         isfavourite: () {
+          //           provider.isfavourite(productList[index].id);
+          //         },
+          //       );
+          //     },
+          //   ),
+          // )
+
+          ////////////////////////
+          // Align(
+          //   alignment: Alignment.center,
+          //   child: Wrap(
+          //     spacing: 20, runSpacing: 20,
+          //     // crossAxisAlignment: WrapCrossAlignment.start,
+          //     // alignment: WrapAlignment.spaceBetween,
+          // children: productList
+          //     .map(
+          //       (e) => AppProductDisplayCard(
+          //           image: e.image,
+          //           title: e.title,
+          //           description: e.description,
+          //           price: e.price,
+          //           stars: e.stars,
+          //           addToCart: () {}),
+          //     )
+          //     .toList(),
+          //   ),
+          // )

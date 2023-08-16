@@ -59,12 +59,7 @@ class _HomePageState extends State<HomePage> {
                 description:
                     'Discover our top-requested products across Europe!',
                 function: () {},
-                mobileRow: [
-                  auto,
-                  auto,
-                ],
-                widescreenRow: [auto],
-                productList: productlistprovider.mostRequestedProducts)
+                productList: productlistprovider.allproducts)
           ],
         ),
       ),
