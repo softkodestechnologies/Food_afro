@@ -9,7 +9,7 @@ import 'package:food_afro_bean/widgets/app_image_icon_button.dart';
 import 'package:food_afro_bean/widgets/app_text.dart';
 
 class AppProductDisplayCard extends StatefulWidget {
-  const AppProductDisplayCard({
+  AppProductDisplayCard({
     super.key,
     required this.id,
     required this.image,
@@ -37,14 +37,14 @@ class AppProductDisplayCard extends StatefulWidget {
 
 class _AppProductDisplayCardState extends State<AppProductDisplayCard> {
   // bool expand = false;
-  double _onhoverheight = 430.0;
+  double _onhoverheight = 460.0;
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
     bool desktop = (ResponsiveScreenView.isDesktop(context));
     bool widescreen = (ResponsiveScreenView.isDesktop(context) ||
         ResponsiveScreenView.isTablet(context));
-    double _containerHeight = desktop ? _onhoverheight : 470.0;
+    double _containerHeight = desktop ? _onhoverheight : 480.0;
 
     void _expandContainer() {
       setState(() {
@@ -54,7 +54,7 @@ class _AppProductDisplayCardState extends State<AppProductDisplayCard> {
 
     void _shrinkContainer() {
       setState(() {
-        _onhoverheight = 430.0;
+        _onhoverheight = 460.0;
       });
     }
 
@@ -66,7 +66,9 @@ class _AppProductDisplayCardState extends State<AppProductDisplayCard> {
           _shrinkContainer();
         }
       },
-      onTap: () {},
+      onTap: () {
+        // navigate to product card with id as tag
+      },
       child: Container(
         // color: expand ? AppColors.themeColor : null,
         height: _containerHeight, //? 550 : 450,
@@ -137,7 +139,7 @@ class _AppProductDisplayCardState extends State<AppProductDisplayCard> {
               ],
             ),
             const SizedBox(height: 10),
-            if (_containerHeight != 430)
+            if (_containerHeight != 460)
               media.width <= 280
                   ? Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -169,12 +171,12 @@ class _AppProductDisplayCardState extends State<AppProductDisplayCard> {
                       ],
                     )
                   : Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         AppButton1(
                           label: '',
                           function: widget.addToCart,
-                          width: 160,
+                          width: 110,
                           widget: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -194,11 +196,7 @@ class _AppProductDisplayCardState extends State<AppProductDisplayCard> {
                               ? 'assets/images/fav_red.svg'
                               : 'assets/images/fav_borderline.svg',
                           size: 30,
-                          function: () {
-                            setState(() {
-                              widget.isfavourite;
-                            });
-                          },
+                          function: widget.isfavourite,
                         )
                       ],
                     )

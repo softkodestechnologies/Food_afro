@@ -119,6 +119,7 @@ class ProductListProvider with ChangeNotifier {
     var mostR = mostRequestedProducts.firstWhere((e) => e.id == id);
     product.favourite = !product.favourite;
     mostR.favourite = !mostR.favourite;
+    print('working');
     notifyListeners();
   }
 }

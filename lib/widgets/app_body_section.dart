@@ -42,7 +42,9 @@ class AppBodySpliteSection extends StatelessWidget {
         ResponsiveScreenView.isTablet(context));
     bool desktop = (ResponsiveScreenView.isDesktop(context));
     bool tablet = (ResponsiveScreenView.isTablet(context));
-    var provider = Provider.of<ProductListProvider>(context);
+    var provider = Provider.of<ProductListProvider>(
+      context,
+    );
 
     int numOfColumn = desktop
         ? 4
@@ -75,7 +77,7 @@ class AppBodySpliteSection extends StatelessWidget {
             rowNum: numofRow(
                 numofColumn: numOfColumn, listLenght: productList.length),
             columnNum: numOfColumn,
-            widgetList: provider.allproducts
+            widgetList: productList
                 .map((e) => AppProductDisplayCard(
                       id: e.id,
                       image: e.image,

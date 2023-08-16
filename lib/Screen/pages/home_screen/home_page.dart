@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
+import 'package:food_afro_bean/Screen/pages/home_screen/sections/home_category.dart';
 import 'package:food_afro_bean/Screen/pages/home_screen/sections/home_wallpaper.dart';
 import 'package:food_afro_bean/provider/product_lists_provider.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
@@ -59,7 +60,17 @@ class _HomePageState extends State<HomePage> {
                 description:
                     'Discover our top-requested products across Europe!',
                 function: () {},
-                productList: productlistprovider.allproducts)
+                productList: productlistprovider.mostRequestedProducts),
+            const HomeCategorySection(
+              title: 'Category',
+              description:
+                  'Discover your needs with our comprehensive category list.',
+            ),
+            AppBodySpliteSection(
+                title: 'Recommended products',
+                description: 'Explore essential products for your needs',
+                function: () {},
+                productList: productlistprovider.allproducts),
           ],
         ),
       ),
