@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:food_afro_bean/Screen/pages/home_screen/widgets/wallpaper2_card.dart';
 import 'package:food_afro_bean/util/app_color.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
 import 'package:food_afro_bean/widgets/app_text.dart';
@@ -15,7 +16,7 @@ class HomeScreenWallpaper2Section extends StatelessWidget {
 
     return Container(
       clipBehavior: Clip.hardEdge,
-      height: widescreen ? 450 : 750,
+      height: widescreen ? 550 : 850,
       width: media.width * .9,
       margin: const EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
@@ -36,7 +37,7 @@ class HomeScreenWallpaper2Section extends StatelessWidget {
               )),
           Container(
             width: media.width * .8,
-            height: widescreen ? 320 : 520,
+            height: widescreen ? 420 : 620,
             margin: EdgeInsets.symmetric(
               // vertical: 20,
               horizontal: media.width * .05,
@@ -44,16 +45,51 @@ class HomeScreenWallpaper2Section extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const SizedBox(height: 15),
                 HeaderBoldText(
                     text: 'Our flexible delivery options',
                     size: widescreen ? null : 17),
                 SizedBox(
-                  width: media.width * .4,
-                  child: BodyText(
+                  width: widescreen ? media.width * .5 : double.infinity,
+                  child: const BodyText(
                     text:
                         'Experience the convenience of our versatile delivery choices tailored to suit your specific needs.',
                     maxLines: 4,
                   ),
+                ),
+                const SizedBox(height: 15),
+                Container(
+                  height: widescreen ? 230 : 500,
+                  width: double.infinity,
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: widescreen
+                      ? const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            HomeWallpaper2Card(
+                                image: 'assets/images/house.svg',
+                                text:
+                                    'Experience the  convenience with our shopping solution. Browse and shop from the comfort of your home, then visit our store to handpick the exact items you desire.'),
+                            HomeWallpaper2Card(
+                                image: 'assets/images/personShopping.svg',
+                                text:
+                                    'Discover unmatched convenience through our home shopping experience. Our dedicated staff carefully handpicks items for you, delivering them directly to your doorstep.')
+                          ],
+                        )
+                      : const Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            HomeWallpaper2Card(
+                                image: 'assets/images/house.svg',
+                                text:
+                                    'Experience the  convenience with our shopping solution. Browse and shop from the comfort of your home, then visit our store to handpick the exact items you desire.'),
+                            HomeWallpaper2Card(
+                                image: 'assets/images/personShopping.svg',
+                                text:
+                                    'Discover unmatched convenience through our home shopping experience. Our dedicated staff carefully handpicks items for you, delivering them directly to your doorstep.')
+                          ],
+                        ),
                 )
               ],
             ),

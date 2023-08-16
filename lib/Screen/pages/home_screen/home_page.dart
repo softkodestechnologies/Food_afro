@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:food_afro_bean/Screen/pages/home_screen/sections/home_category.dart';
 import 'package:food_afro_bean/Screen/pages/home_screen/sections/home_wallpaper.dart';
 import 'package:food_afro_bean/Screen/pages/home_screen/sections/home_wallpaper2.dart';

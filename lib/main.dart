@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_afro_bean/Screen/pages/aut_screen/aut_screen.dart';
-import 'package:food_afro_bean/Screen/screen_widgets/body/screen_body.dart';
+import 'package:food_afro_bean/Screen/pages/home_screen/home_page_view.dart';
 import 'package:food_afro_bean/Screen/screen_widgets/header/screen_header_search_page.dart';
 import 'package:food_afro_bean/provider/auth_provider.dart';
 import 'package:food_afro_bean/provider/dropdown_provider.dart';
@@ -19,7 +19,8 @@ void main() {
       ),
       ChangeNotifierProvider(
         create: (context) => ScreenNavigationProvider(),
-      ),  ChangeNotifierProvider(
+      ),
+      ChangeNotifierProvider(
         create: (context) => ProductListProvider(),
       ),
     ], child: const MyApp()),
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
             seedColor: const Color.fromRGBO(202, 67, 20, 1)),
         useMaterial3: true,
       ),
-      home: const ScreenBody(),
+      home: const HomePageView(),
       routes: {
         ScreenHeaderSearchPage.routeName: (context) =>
             const ScreenHeaderSearchPage(),
