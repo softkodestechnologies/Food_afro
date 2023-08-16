@@ -62,15 +62,25 @@ class _HomeCategorySectionState extends State<HomeCategorySection> {
     ),
   ];
   void goforward() {
-    if (page > category.length) {
-      _scrollController.jumpTo(page + 1.0);
-    }
+    _scrollController.animateTo(
+      0,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeIn,
+    );
+    // if (page < category.length) {
+
+    // }
   }
 
   void gobackward() {
-    if (page > 0) {
-      _scrollController.jumpTo(page - 1.0);
-    }
+    _scrollController.animateTo(
+      1000,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeIn,
+    );
+    // if (page > 0) {
+
+    // }
   }
 
   @override
@@ -96,14 +106,16 @@ class _HomeCategorySectionState extends State<HomeCategorySection> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     AppImageIconButton(
+                      size: 30,
                       image: 'assets/images/leftArrow.svg',
                       function: () {
                         setState(() {
-                          gobackward();
+                          goforward();
                         });
                       },
                     ),
                     AppImageIconButton(
+                      size: 30,
                       image: 'assets/images/rightArrow.svg',
                       function: () {
                         setState(() {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 import 'package:food_afro_bean/Screen/pages/home_screen/sections/home_category.dart';
 import 'package:food_afro_bean/Screen/pages/home_screen/sections/home_wallpaper.dart';
+import 'package:food_afro_bean/Screen/pages/home_screen/sections/home_wallpaper2.dart';
 import 'package:food_afro_bean/provider/product_lists_provider.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
 import 'package:food_afro_bean/widgets/app_body_section.dart';
@@ -15,29 +16,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late final ScrollController _scrollController;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    _scrollController = ScrollController();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    _scrollController.dispose();
-    super.dispose();
-  }
-
-  void gotobegining() {
-    _scrollController.animateTo(
-      0,
-      duration: const Duration(milliseconds: 500),
-      curve: Curves.easeInOut,
-    );
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +29,7 @@ class _HomePageState extends State<HomePage> {
           horizontal: widescreen ? media.width * 0.05 : 10),
       margin: const EdgeInsets.only(top: 10),
       child: SingleChildScrollView(
-        controller: _scrollController,
+       
         child: Column(
           children: [
             const HomeScreenWallpaperSection(),
@@ -61,16 +40,26 @@ class _HomePageState extends State<HomePage> {
                     'Discover our top-requested products across Europe!',
                 function: () {},
                 productList: productlistprovider.mostRequestedProducts),
+//////////////
+
             const HomeCategorySection(
               title: 'Category',
               description:
                   'Discover your needs with our comprehensive category list.',
             ),
+////////////////
+
             AppBodySpliteSection(
                 title: 'Recommended products',
                 description: 'Explore essential products for your needs',
                 function: () {},
                 productList: productlistprovider.allproducts),
+
+            ///////////
+            ///
+            const HomeScreenWallpaper2Section(),
+
+          
           ],
         ),
       ),
