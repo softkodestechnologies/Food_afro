@@ -16,7 +16,7 @@ class HomeScreenWallpaper2Section extends StatelessWidget {
 
     return Container(
       clipBehavior: Clip.hardEdge,
-      height: widescreen ? 550 : 850,
+      height: widescreen ? 550 : 880,
       width: media.width * .9,
       margin: const EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
@@ -37,7 +37,7 @@ class HomeScreenWallpaper2Section extends StatelessWidget {
               )),
           Container(
             width: media.width * .8,
-            height: widescreen ? 420 : 620,
+            height: widescreen ? 420 : 650,
             margin: EdgeInsets.symmetric(
               // vertical: 20,
               horizontal: media.width * .05,
@@ -45,7 +45,7 @@ class HomeScreenWallpaper2Section extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 15),
+                const SizedBox(height: 10),
                 HeaderBoldText(
                     text: 'Our flexible delivery options',
                     size: widescreen ? null : 17),
@@ -57,12 +57,12 @@ class HomeScreenWallpaper2Section extends StatelessWidget {
                     maxLines: 4,
                   ),
                 ),
-                const SizedBox(height: 15),
+                const SizedBox(height: 10),
                 Container(
-                  height: widescreen ? 230 : 500,
+                  height: widescreen ? 230 : 524,
                   width: double.infinity,
                   alignment: Alignment.center,
-                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  // padding: const EdgeInsets.only(top: 10),
                   child: widescreen
                       ? const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,

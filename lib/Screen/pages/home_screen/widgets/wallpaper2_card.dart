@@ -14,10 +14,10 @@ class HomeWallpaper2Card extends StatelessWidget {
         ResponsiveScreenView.isTablet(context));
     return SizedBox(
       width: widescreen ? 250 : 200,
-      height: 230,
+      height: 260,
       child: Column(children: [
         SvgPicture.asset(image, fit: BoxFit.contain),
-        const SizedBox(height: 10),
+        const SizedBox(height: 20),
         BodyText(
           text: text,
           size: 15,

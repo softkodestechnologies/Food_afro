@@ -3,6 +3,7 @@ import 'package:food_afro_bean/Screen/pages/home_screen/sections/home_category.d
 import 'package:food_afro_bean/Screen/pages/home_screen/sections/home_wallpaper.dart';
 import 'package:food_afro_bean/Screen/pages/home_screen/sections/home_wallpaper2.dart';
 import 'package:food_afro_bean/provider/product_lists_provider.dart';
+import 'package:food_afro_bean/provider/soup_lists_provider.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
 import 'package:food_afro_bean/widgets/app_body_section.dart';
 import 'package:provider/provider.dart';
@@ -15,12 +16,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  
-
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
     var productlistprovider = Provider.of<ProductListProvider>(context);
+    var recipeslistprovider = Provider.of<SoupCardProvider>(context);
     bool widescreen = (ResponsiveScreenView.isDesktop(context) ||
         ResponsiveScreenView.isTablet(context));
     return Container(
@@ -28,7 +28,6 @@ class _HomePageState extends State<HomePage> {
           horizontal: widescreen ? media.width * 0.05 : 10),
       margin: const EdgeInsets.only(top: 10),
       child: SingleChildScrollView(
-       
         child: Column(
           children: [
             const HomeScreenWallpaperSection(),
@@ -58,7 +57,21 @@ class _HomePageState extends State<HomePage> {
             ///
             const HomeScreenWallpaper2Section(),
 
-          
+            //////////////
+            ///
+            AppBodySpliteSectionSoup(
+                title: 'Popular Nigerian recipes',
+                description:
+                    'Explore delicious Nigerian recipes from different tribes and ethnicities.',
+                productList: recipeslistprovider.allSoup),
+
+            //////////////////
+            ///
+            AppBodySpliteSection(
+                title: 'Most requested products',
+                description: '',
+                function: () {},
+                productList: productlistprovider.allproducts),
           ],
         ),
       ),

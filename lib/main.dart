@@ -6,6 +6,7 @@ import 'package:food_afro_bean/provider/auth_provider.dart';
 import 'package:food_afro_bean/provider/dropdown_provider.dart';
 import 'package:food_afro_bean/provider/product_lists_provider.dart';
 import 'package:food_afro_bean/provider/screen_navigation_provider.dart';
+import 'package:food_afro_bean/provider/soup_lists_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -22,6 +23,8 @@ void main() {
       ),
       ChangeNotifierProvider(
         create: (context) => ProductListProvider(),
+      ), ChangeNotifierProvider(
+        create: (context) => SoupCardProvider(),
       ),
     ], child: const MyApp()),
   );

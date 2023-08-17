@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:food_afro_bean/Screen/pages/home_screen/widgets/home_soup_card.dart';
+import 'package:food_afro_bean/model/home_soup_card_model.dart';
 import 'package:food_afro_bean/model/product_display_card.dart';
 import 'package:food_afro_bean/provider/product_lists_provider.dart';
+import 'package:food_afro_bean/provider/soup_lists_provider.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
 import 'package:food_afro_bean/widgets/app_ItemRowColumn.dart';
 import 'package:food_afro_bean/widgets/app_product_display_card.dart';
@@ -100,6 +103,99 @@ class AppBodySpliteSection extends StatelessWidget {
   }
 }
 
+/////////////////////////////////////////////////////////////////////////////
+class AppBodySpliteSectionSoup extends StatelessWidget {
+  const AppBodySpliteSectionSoup({
+    super.key,
+    required this.title,
+    required this.description,
+    this.buttontext,
+    // required this.function,
+    required this.productList,
+  });
+
+  final String title;
+  final String description;
+  final String? buttontext;
+  // final VoidCallback function;
+  final List<HomeSoupCardModel> productList;
+  ////
+  int numofRow({required int numofColumn, required int listLenght}) {
+    double rowIndexA = (listLenght / numofColumn);
+    int rowIndexB = (listLenght / numofColumn).floor();
+    if (rowIndexA != rowIndexB) {
+      return (rowIndexB + 1);
+    } else {
+      return (rowIndexB);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var media = MediaQuery.of(context).size;
+    bool widescreen = (ResponsiveScreenView.isDesktop(context) ||
+        ResponsiveScreenView.isTablet(context));
+    bool desktop = (ResponsiveScreenView.isDesktop(context));
+    bool tablet = (ResponsiveScreenView.isTablet(context));
+    var provider = Provider.of<SoupCardProvider>(
+      context,
+    );
+
+    int numOfColumn = desktop
+        ? 4
+        : (tablet)
+            ? 3
+            : 2;
+
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 20),
+      width: media.width * .9,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              HeaderBoldText(
+                text: title,
+                size: widescreen ? null : 16,
+              ),
+              // AppTextButton1(
+              //     label: 'View all', function: function, textsize: 13),
+            ],
+          ),
+          const SizedBox(height: 15),
+          BodyText(text: description, maxLines: 2),
+          const SizedBox(height: 15),
+          AppGridWidget(
+            rowNum: numofRow(
+                numofColumn: numOfColumn, listLenght: productList.length),
+            columnNum: numOfColumn,
+            widgetList: productList
+                .map((e) => HomeSoupCard(
+                      id: e.id,
+                      image: e.image,
+                      title: e.title,
+                      description: e.description,
+                      fav: e.fav,
+                      favourite: () {
+                        provider.isfavourite(e.id);
+                      },
+                    ))
+                .toList(),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+
+
+
+
+//////////////////
 // class AppGridWidget extends StatelessWidget {
 //   final int rowNum;
 //   final int columnNum;
