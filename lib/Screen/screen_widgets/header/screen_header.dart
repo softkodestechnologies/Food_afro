@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_afro_bean/Screen/pages/aut_screen/aut_screen.dart';
+import 'package:food_afro_bean/Screen/pages/product_screen/product_page_view.dart';
 import 'package:food_afro_bean/Screen/screen_widgets/header/screen_header_search_page.dart';
 import 'package:food_afro_bean/Screen/screen_widgets/header/screen_header_text_button_list.dart';
 import 'package:food_afro_bean/provider/auth_provider.dart';
@@ -358,7 +359,11 @@ class HeaderBrownBar extends StatelessWidget {
         const SizedBox(width: 5),
         const BodyText(text: '|', color: Colors.white),
         const SizedBox(width: 5),
-        const BodyText(text: 'Products', color: Colors.white),
+        GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, ProductPageView.routeName);
+            },
+            child: const BodyText(text: 'Products', color: Colors.white)),
         const SizedBox(width: 5),
         const BodyText(text: '|', color: Colors.white),
         const SizedBox(width: 5),

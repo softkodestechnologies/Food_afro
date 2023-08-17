@@ -31,21 +31,20 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             const HomeScreenWallpaperSection(),
-            // AppBodySpliteSection(),
+         
             AppBodySpliteSection(
                 title: 'Most requested products',
                 description:
                     'Discover our top-requested products across Europe!',
                 function: () {},
                 productList: productlistprovider.mostRequestedProducts),
-//////////////
+
 
             const HomeCategorySection(
               title: 'Category',
               description:
                   'Discover your needs with our comprehensive category list.',
             ),
-////////////////
 
             AppBodySpliteSection(
                 title: 'Recommended products',
@@ -53,20 +52,17 @@ class _HomePageState extends State<HomePage> {
                 function: () {},
                 productList: productlistprovider.allproducts),
 
-            ///////////
-            ///
+        
             const HomeScreenWallpaper2Section(),
 
-            //////////////
-            ///
+         
             AppBodySpliteSectionSoup(
                 title: 'Popular Nigerian recipes',
                 description:
                     'Explore delicious Nigerian recipes from different tribes and ethnicities.',
                 productList: recipeslistprovider.allSoup),
 
-            //////////////////
-            ///
+       
             AppBodySpliteSection(
                 title: 'Most requested products',
                 description: '',

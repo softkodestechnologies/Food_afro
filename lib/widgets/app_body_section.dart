@@ -19,11 +19,13 @@ class AppBodySpliteSection extends StatelessWidget {
     this.buttontext,
     required this.function,
     required this.productList,
+    this.columns,
   });
 
   final String title;
-  final String description;
+  final String? description;
   final String? buttontext;
+  final int? columns;
   final VoidCallback function;
   final List<ProductDisplayCard> productList;
   ////
@@ -48,11 +50,12 @@ class AppBodySpliteSection extends StatelessWidget {
       context,
     );
 
-    int numOfColumn = desktop
-        ? 4
-        : (tablet)
-            ? 3
-            : 2;
+    int numOfColumn = columns ??
+        (desktop
+            ? 4
+            : (tablet)
+                ? 3
+                : 2);
 
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 20),
@@ -73,8 +76,9 @@ class AppBodySpliteSection extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 15),
-          BodyText(text: description, maxLines: 2),
-          const SizedBox(height: 15),
+          if (description != null)
+            BodyText(text: description ?? '', maxLines: 2),
+          if (description != null) const SizedBox(height: 15),
           AppGridWidget(
             rowNum: numofRow(
                 numofColumn: numOfColumn, listLenght: productList.length),
