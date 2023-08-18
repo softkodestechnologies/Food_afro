@@ -11,14 +11,15 @@ import 'package:provider/provider.dart';
 
 import '../../../provider/product_lists_provider.dart';
 
-class ProductPageScreen extends StatefulWidget {
-  const ProductPageScreen({super.key});
+class ViewAllProductPageScreen extends StatefulWidget {
+  const ViewAllProductPageScreen({super.key});
 
   @override
-  State<ProductPageScreen> createState() => _ProductPageScreenState();
+  State<ViewAllProductPageScreen> createState() =>
+      _ViewAllProductPageScreenState();
 }
 
-class _ProductPageScreenState extends State<ProductPageScreen> {
+class _ViewAllProductPageScreenState extends State<ViewAllProductPageScreen> {
   bool vegetables = false;
   bool sweets = false;
   bool spices = false;
@@ -194,17 +195,33 @@ class _ProductPageScreenState extends State<ProductPageScreen> {
                                     width: media.width * .9,
                                     child: Column(
                                       children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
-                                            const HeaderBoldText(
-                                              text: 'Products',
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                HeaderBoldText(
+                                                  text:
+                                                      'Most requested products',
+                                                  maxLines: 2,
+                                                  size: mobile ? 20 : null,
+                                                ),
+                                                const Spacer(),
+                                                AppImageIconButton(
+                                                  image:
+                                                      'assets/images/sort.svg',
+                                                  function: filterCLick,
+                                                ),
+                                              ],
                                             ),
-                                            const Spacer(),
-                                            AppImageIconButton(
-                                              image: 'assets/images/sort.svg',
-                                              function: filterCLick,
+                                            const BodyText(
+                                              text:
+                                                  'Discover our top-requested products across Europe!',
+                                              maxLines: 2,
                                             ),
                                           ],
                                         ),
@@ -220,8 +237,13 @@ class _ProductPageScreenState extends State<ProductPageScreen> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         const HeaderBoldText(
-                                          text: 'Products',
+                                          text: 'Most requested products',
                                           // size: 16,
+                                        ),
+                                        const BodyText(
+                                          text:
+                                              'Discover our top-requested products across Europe!',
+                                          maxLines: 2,
                                         ),
                                         const SizedBox(height: 20),
                                         searchbar,

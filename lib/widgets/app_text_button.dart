@@ -4,11 +4,15 @@ import 'package:food_afro_bean/widgets/app_text.dart';
 
 class AppTextButton1 extends StatelessWidget {
   const AppTextButton1(
-      {super.key, required this.label, required this.function, this.textsize});
+      {super.key,
+      required this.label,
+      required this.function,
+      this.textsize,
+      this.textcolor});
   final String label;
   final VoidCallback function;
   final double? textsize;
-
+  final Color? textcolor;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -17,7 +21,7 @@ class AppTextButton1 extends StatelessWidget {
       child: SmallBodyText(
         text: label,
         size: textsize,
-        color: AppColors.complementColor,
+        color: textcolor ?? AppColors.complementColor,
       ),
     );
   }

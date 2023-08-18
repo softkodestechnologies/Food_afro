@@ -3,9 +3,10 @@ import 'package:food_afro_bean/Screen/pages/home_screen/home_page.dart';
 import 'package:food_afro_bean/Screen/screen_widgets/footer/screen_footer.dart';
 import 'package:food_afro_bean/Screen/screen_widgets/header/screen_header.dart';
 import 'package:food_afro_bean/util/app_color.dart';
+import 'package:food_afro_bean/util/responsive_screen.dart';
 
 class HomePageView extends StatefulWidget {
-   static const routeName = '/homepage';
+  static const routeName = '/homepage';
   const HomePageView({super.key});
 
   @override
@@ -53,6 +54,8 @@ class _HomePageViewState extends State<HomePageView> {
 
   @override
   Widget build(BuildContext context) {
+    bool widescreen = (ResponsiveScreenView.isDesktop(context) ||
+        ResponsiveScreenView.isTablet(context));
     return Scaffold(
       body: Stack(
         children: [
@@ -60,7 +63,7 @@ class _HomePageViewState extends State<HomePageView> {
               controller: _scrollController,
               child: const Column(
                 children: [
-                  ScreenHeader(),
+                  SizedBox(height: 130),
                   HomePage(),
                   ScreenFooter(),
                 ],
@@ -76,6 +79,7 @@ class _HomePageViewState extends State<HomePageView> {
                       child: const Icon(Icons.arrow_upward),
                     )
                   : const SizedBox()),
+          const ScreenHeader(),
         ],
       ),
     );

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:food_afro_bean/Screen/pages/aut_screen/aut_screen.dart';
-import 'package:food_afro_bean/Screen/pages/home_screen/home_page.dart';
+// import 'package:food_afro_bean/Screen/pages/filter/filter_screen.dart';
+// import 'package:food_afro_bean/Screen/pages/home_screen/home_page.dart';
 import 'package:food_afro_bean/Screen/pages/home_screen/home_page_view.dart';
 import 'package:food_afro_bean/Screen/pages/product_screen/product_page_view.dart';
+import 'package:food_afro_bean/Screen/pages/view_all_products/view_all_products_view.dart';
 import 'package:food_afro_bean/Screen/screen_widgets/header/screen_header_search_page.dart';
 import 'package:food_afro_bean/provider/auth_provider.dart';
 import 'package:food_afro_bean/provider/dropdown_provider.dart';
@@ -53,6 +55,7 @@ class MyApp extends StatelessWidget {
         ScreenHeaderSearchPage.routeName: (context) =>
             const ScreenHeaderSearchPage(),
         AuthScreen.routeName: (context) => const AuthScreen(),
+        ViewAllProductPageView.routeName:(context) => const ViewAllProductPageView(),
         ProductPageView.routeName: (context) => const ProductPageView(),
       },
     );

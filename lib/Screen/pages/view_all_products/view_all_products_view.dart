@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:food_afro_bean/Screen/pages/product_screen/product_page.dart';
+import 'package:food_afro_bean/Screen/pages/view_all_products/view_all_products_page.dart';
 import 'package:food_afro_bean/Screen/screen_widgets/footer/screen_footer.dart';
 import 'package:food_afro_bean/Screen/screen_widgets/header/screen_header.dart';
 import 'package:food_afro_bean/util/app_color.dart';
 
-class ProductPageView extends StatefulWidget {
-  const ProductPageView({super.key});
-  static const routeName = '/productPage';
+class ViewAllProductPageView extends StatefulWidget {
+  const ViewAllProductPageView({super.key});
+  static const routeName = '/view_all_products';
 
   @override
-  State<ProductPageView> createState() => _ProductPageViewState();
+  State<ViewAllProductPageView> createState() => _ViewAllProductPageViewState();
 }
 
-class _ProductPageViewState extends State<ProductPageView> {
+class _ViewAllProductPageViewState extends State<ViewAllProductPageView> {
   late final ScrollController _scrollController;
   bool _showFAB = false;
   @override
@@ -62,7 +62,7 @@ class _ProductPageViewState extends State<ProductPageView> {
               child: const Column(
                 children: [
                   SizedBox(height: 130),
-                  ProductPageScreen(),
+                  ViewAllProductPageScreen(),
                   ScreenFooter(),
                 ],
               )),

@@ -5,10 +5,12 @@ import 'package:food_afro_bean/util/responsive_screen.dart';
 import 'package:food_afro_bean/widgets/app_ItemRowColumn.dart';
 import 'package:food_afro_bean/widgets/app_image_icon_button.dart';
 import 'package:food_afro_bean/widgets/app_product_display_card.dart';
+import 'package:food_afro_bean/widgets/app_text_button.dart';
 import 'package:provider/provider.dart';
 
 class AppPagenatedGrid extends StatefulWidget {
-  AppPagenatedGrid({super.key, required this.productList, this.numofRows});
+  const AppPagenatedGrid(
+      {super.key, required this.productList, this.numofRows});
 
   final List<ProductDisplayCard> productList;
   final int? numofRows;
@@ -38,9 +40,9 @@ class _AppPagenatedGridState extends State<AppPagenatedGrid> {
     var provider = Provider.of<ProductListProvider>(
       context,
     );
-    var media = MediaQuery.of(context).size;
+    // var media = MediaQuery.of(context).size;
     bool desktop = (ResponsiveScreenView.isDesktop(context));
-    bool tablet = (ResponsiveScreenView.isTablet(context));
+    // bool tablet = (ResponsiveScreenView.isTablet(context));
     int numOfColumn = (desktop ? 3 : 2);
     //
     int sublistSize = desktop ? 15 : 14;
@@ -55,7 +57,7 @@ class _AppPagenatedGridState extends State<AppPagenatedGrid> {
       subList.add(widget.productList.sublist(i, endIndex));
     }
 
-    return Container(
+    return SizedBox(
       child: Column(
         children: [
           AppGridWidget(
@@ -99,8 +101,35 @@ class _AppPagenatedGridState extends State<AppPagenatedGrid> {
                 ),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 5),
-                  width: 17,
-                  child: Row(children: []),
+                  width: 100,
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        AppTextButton1(
+                          label: '1',
+                          textsize: 15,
+                          function: () {},
+                          textcolor: null,
+                        ),
+                        AppTextButton1(
+                          label: '2',
+                          textsize: 15,
+                          function: () {},
+                          textcolor: null,
+                        ),
+                        AppTextButton1(
+                          label: '3',
+                          textsize: 15,
+                          function: () {},
+                          textcolor: null,
+                        ),
+                        AppTextButton1(
+                          label: '4',
+                          textsize: 15,
+                          function: () {},
+                          textcolor: null,
+                        ),
+                      ]),
                 ),
                 AppImageIconButton(
                   size: 30,
@@ -115,7 +144,8 @@ class _AppPagenatedGridState extends State<AppPagenatedGrid> {
                 ),
               ],
             ),
-          )
+          ),
+          const SizedBox(height: 20),
         ],
       ),
     );

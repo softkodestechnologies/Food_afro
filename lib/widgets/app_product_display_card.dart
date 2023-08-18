@@ -25,7 +25,7 @@ class AppProductDisplayCard extends StatefulWidget {
   final String description;
   final double price;
   final double stars;
-  bool fav;
+  final bool fav;
   final VoidCallback addToCart;
   final VoidCallback isfavourite;
 
@@ -42,7 +42,11 @@ class _AppProductDisplayCardState extends State<AppProductDisplayCard> {
     bool desktop = (ResponsiveScreenView.isDesktop(context));
     bool widescreen = (ResponsiveScreenView.isDesktop(context) ||
         ResponsiveScreenView.isTablet(context));
-    double _containerHeight = desktop ? _onhoverheight : 410.0;
+    double _containerHeight = desktop
+        ? _onhoverheight
+        : widescreen
+            ? 480.0
+            : 410;
 
     void _expandContainer() {
       setState(() {
@@ -57,7 +61,6 @@ class _AppProductDisplayCardState extends State<AppProductDisplayCard> {
     }
 
     return InkWell(
-      hoverColor: Colors.white,
       onHover: (isHovered) {
         if (isHovered) {
           _expandContainer();
@@ -74,7 +77,6 @@ class _AppProductDisplayCardState extends State<AppProductDisplayCard> {
         margin: const EdgeInsets.only(top: 15),
         width: widescreen ? 220 : media.width * .45,
         padding: const EdgeInsets.symmetric(horizontal: 5),
-        // color: AppColors.backgroundGray,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -83,7 +85,7 @@ class _AppProductDisplayCardState extends State<AppProductDisplayCard> {
               child: SizedBox(
                 ///change to image network later this is for test use only
 
-                height: !widescreen ? 200 : 270,
+                height: widescreen ? 270 : 200,
                 child: Image.asset(
                   widget.image,
                   fit: BoxFit.fill,
@@ -169,38 +171,35 @@ class _AppProductDisplayCardState extends State<AppProductDisplayCard> {
                             function: widget.isfavourite)
                       ],
                     )
-                  : SizedBox(
-                      width: widescreen ? 220 : media.width * .45,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          AppButton1(
-                            label: '',
-                            function: widget.addToCart,
-                            width: desktop ? 170 : (media.width * .45 - 50),
-                            widget: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  SvgPicture.asset('assets/images/bag22.svg'),
-                                  const SizedBox(width: 3),
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        AppButton1(
+                          label: '',
+                          function: widget.addToCart,
+                          width: 110,
+                          widget: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset('assets/images/bag22.svg'),
+                                const SizedBox(width: 3),
 
-                                  const SmallBodyText(
-                                    text: 'Add to Cart',
-                                    color: Colors.white,
-                                  ),
-                                  // AppImageIconButton(image: image, function: function)
-                                ]),
-                          ),
-                          const SizedBox(width: 10),
-                          AppImageIconButton(
-                            image: widget.fav
-                                ? 'assets/images/fav_red.svg'
-                                : 'assets/images/fav_borderline.svg',
-                            size: 30,
-                            function: widget.isfavourite,
-                          )
-                        ],
-                      ),
+                                const SmallBodyText(
+                                  text: 'Add to Cart',
+                                  color: Colors.white,
+                                ),
+                                // AppImageIconButton(image: image, function: function)
+                              ]),
+                        ),
+                        const SizedBox(width: 10),
+                        AppImageIconButton(
+                          image: widget.fav
+                              ? 'assets/images/fav_red.svg'
+                              : 'assets/images/fav_borderline.svg',
+                          size: 30,
+                          function: widget.isfavourite,
+                        )
+                      ],
                     )
           ],
         ),

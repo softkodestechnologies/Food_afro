@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_afro_bean/Screen/pages/home_screen/sections/home_category.dart';
 import 'package:food_afro_bean/Screen/pages/home_screen/sections/home_wallpaper.dart';
 import 'package:food_afro_bean/Screen/pages/home_screen/sections/home_wallpaper2.dart';
+import 'package:food_afro_bean/Screen/pages/view_all_products/view_all_products_view.dart';
 import 'package:food_afro_bean/provider/product_lists_provider.dart';
 import 'package:food_afro_bean/provider/soup_lists_provider.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
@@ -9,7 +10,6 @@ import 'package:food_afro_bean/widgets/app_body_section.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
- 
   const HomePage({super.key});
 
   @override
@@ -36,7 +36,9 @@ class _HomePageState extends State<HomePage> {
                 title: 'Most requested products',
                 description:
                     'Discover our top-requested products across Europe!',
-                function: () {},
+                function: () {
+                  Navigator.pushReplacementNamed(context, ViewAllProductPageView.routeName);
+                },
                 productList: productlistprovider.mostRequestedProducts),
             const HomeCategorySection(
               title: 'Category',
@@ -46,7 +48,9 @@ class _HomePageState extends State<HomePage> {
             AppBodySpliteSection(
                 title: 'Recommended products',
                 description: 'Explore essential products for your needs',
-                function: () {},
+                function: () {
+                  Navigator.pushReplacementNamed(context, ViewAllProductPageView.routeName);
+                },
                 productList: productlistprovider.allproducts),
             const HomeScreenWallpaper2Section(),
             AppBodySpliteSectionSoup(
@@ -57,7 +61,9 @@ class _HomePageState extends State<HomePage> {
             AppBodySpliteSection(
                 title: 'Most requested products',
                 description: '',
-                function: () {},
+               function: () {
+                  Navigator.pushReplacementNamed(context, ViewAllProductPageView.routeName);
+                },
                 productList: productlistprovider.allproducts),
           ],
         ),
