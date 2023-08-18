@@ -5,7 +5,7 @@ import 'package:food_afro_bean/widgets/app_image_icon_button.dart';
 import 'package:food_afro_bean/widgets/app_text.dart';
 
 class HomeSoupCard extends StatelessWidget {
-  HomeSoupCard(
+ const HomeSoupCard(
       {super.key,
       required this.id,
       required this.image,
@@ -17,7 +17,7 @@ class HomeSoupCard extends StatelessWidget {
   final String image;
   final String title;
   final String description;
-  bool fav;
+ final bool fav;
   final VoidCallback favourite;
   @override
   Widget build(BuildContext context) {

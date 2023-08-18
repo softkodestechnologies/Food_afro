@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-
 import 'package:food_afro_bean/Screen/pages/filter/widget/checkBox_text_text.dart';
 import 'package:food_afro_bean/util/app_color.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
 import 'package:food_afro_bean/widgets/app_text.dart';
 
 class FilterSection extends StatefulWidget {
-  FilterSection({
+  const FilterSection({
     Key? key,
     this.width,
     required this.vegetables,
@@ -42,35 +41,35 @@ class FilterSection extends StatefulWidget {
 ///////////////////
 
   //////////////////////
-  bool vegetables;
+  final bool vegetables;
   final Function(bool?) vegetablesonchange;
   final int vegetablescount;
-  bool sweets;
+  final bool sweets;
   final Function(bool?) sweetsonchange;
   final int sweetscount;
-  bool spices;
+  final bool spices;
   final Function(bool?) spicesonchange;
   final int spicescount;
-  bool snacksandDrinks;
+  final bool snacksandDrinks;
   final Function(bool?) snacksandDrinksonchange;
   final int snacksandDrinkscount;
 ///////////////////
-  bool cheapest;
+  final bool cheapest;
   final Function(bool?) cheapestonchange;
-  bool mostExpensive;
+  final bool mostExpensive;
   final Function(bool?) mostExpensiveonchange;
 ////////////////////
   final double pricesMaxRange;
-  double minmumprice;
-  double maximumprice;
-  RangeValues rangeValues;
+  final double minmumprice;
+  final double maximumprice;
+  final RangeValues rangeValues;
   final Function(RangeValues) pricerangeFunction;
   ////////////
-  bool fivestars;
+  final bool fivestars;
   final Function(bool?) fivestarsonchange;
-  bool fourstars;
+  final bool fourstars;
   final Function(bool?) fourstarsonchange;
-  bool threestars;
+  final bool threestars;
   final Function(bool?) threestarsonchange;
   @override
   State<FilterSection> createState() => _FilterSectionState();
@@ -82,11 +81,10 @@ class _FilterSectionState extends State<FilterSection> {
 
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
-    bool widescreen = (ResponsiveScreenView.isDesktop(context) ||
-        ResponsiveScreenView.isTablet(context));
+
     bool mobile = (ResponsiveScreenView.isMobile(context));
     return Container(
-      width: mobile ? media.width * .9 : widget.width ?? 250,
+      width: mobile ? media.width * .9 : widget.width ?? 230,
       height: 680,
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Column(

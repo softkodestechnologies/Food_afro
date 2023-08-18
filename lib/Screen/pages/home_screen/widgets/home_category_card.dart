@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_afro_bean/util/app_color.dart';
-import 'package:food_afro_bean/util/responsive_screen.dart';
+// import 'package:food_afro_bean/util/responsive_screen.dart';
 
 class HomeCategoryCard extends StatelessWidget {
   const HomeCategoryCard(
@@ -10,8 +10,8 @@ class HomeCategoryCard extends StatelessWidget {
   final VoidCallback function;
   @override
   Widget build(BuildContext context) {
-    bool widescreen = (ResponsiveScreenView.isDesktop(context) ||
-        ResponsiveScreenView.isTablet(context));
+    // bool widescreen = (ResponsiveScreenView.isDesktop(context) ||
+    //     ResponsiveScreenView.isTablet(context));
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
       color: AppColors.themeColor,

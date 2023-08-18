@@ -27,9 +27,7 @@ class FilterCheckBox1 extends StatelessWidget {
         Checkbox(value: values, onChanged: onchange),
         SizedBox(
           width: mobile
-              ? media.width < 300
-                  ? media.width * .55
-                  : (media.width * .63)
+              ? (media.width < 300 ? media.width * .55 : (media.width * .63))
               : 110,
           child: BodyText(
             text: label,

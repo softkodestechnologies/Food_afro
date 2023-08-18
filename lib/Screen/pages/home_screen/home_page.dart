@@ -9,6 +9,7 @@ import 'package:food_afro_bean/widgets/app_body_section.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
+ 
   const HomePage({super.key});
 
   @override
@@ -31,38 +32,28 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             const HomeScreenWallpaperSection(),
-         
             AppBodySpliteSection(
                 title: 'Most requested products',
                 description:
                     'Discover our top-requested products across Europe!',
                 function: () {},
                 productList: productlistprovider.mostRequestedProducts),
-
-
             const HomeCategorySection(
               title: 'Category',
               description:
                   'Discover your needs with our comprehensive category list.',
             ),
-
             AppBodySpliteSection(
                 title: 'Recommended products',
                 description: 'Explore essential products for your needs',
                 function: () {},
                 productList: productlistprovider.allproducts),
-
-        
             const HomeScreenWallpaper2Section(),
-
-         
             AppBodySpliteSectionSoup(
                 title: 'Popular Nigerian recipes',
                 description:
                     'Explore delicious Nigerian recipes from different tribes and ethnicities.',
                 productList: recipeslistprovider.allSoup),
-
-       
             AppBodySpliteSection(
                 title: 'Most requested products',
                 description: '',

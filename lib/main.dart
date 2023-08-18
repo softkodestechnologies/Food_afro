@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_afro_bean/Screen/pages/aut_screen/aut_screen.dart';
+import 'package:food_afro_bean/Screen/pages/home_screen/home_page.dart';
 import 'package:food_afro_bean/Screen/pages/home_screen/home_page_view.dart';
 import 'package:food_afro_bean/Screen/pages/product_screen/product_page_view.dart';
 import 'package:food_afro_bean/Screen/screen_widgets/header/screen_header_search_page.dart';
@@ -48,6 +49,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const HomePageView(),
       routes: {
+        HomePageView.routeName :(context) =>const HomePageView(),
         ScreenHeaderSearchPage.routeName: (context) =>
             const ScreenHeaderSearchPage(),
         AuthScreen.routeName: (context) => const AuthScreen(),

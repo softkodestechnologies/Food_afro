@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_afro_bean/Screen/pages/aut_screen/aut_screen.dart';
+import 'package:food_afro_bean/Screen/pages/home_screen/home_page_view.dart';
 import 'package:food_afro_bean/Screen/pages/product_screen/product_page_view.dart';
 import 'package:food_afro_bean/Screen/screen_widgets/header/screen_header_search_page.dart';
 import 'package:food_afro_bean/Screen/screen_widgets/header/screen_header_text_button_list.dart';
@@ -344,24 +345,30 @@ class HeaderBrownBar extends StatelessWidget {
       color: AppColors.touchColor,
       alignment: Alignment.center,
       child: Row(mainAxisSize: MainAxisSize.min, children: [
-        SizedBox(
-          child: Row(children: [
-            const BodyText(text: 'Category', color: Colors.white),
-            IconButton(
-                onPressed: categoryshowfunction,
-                icon: const Icon(
-                  Icons.keyboard_arrow_down,
-                  color: Colors.white,
-                  size: 20,
-                ))
-          ]),
+        InkWell(
+          onTap: () {
+            Navigator.pushReplacementNamed(context, HomePageView.routeName);
+          },
+          child: SizedBox(
+            child: Row(children: [
+              const BodyText(text: 'Category', color: Colors.white),
+              IconButton(
+                  onPressed: categoryshowfunction,
+                  icon: const Icon(
+                    Icons.keyboard_arrow_down,
+                    color: Colors.white,
+                    size: 20,
+                  ))
+            ]),
+          ),
         ),
         const SizedBox(width: 5),
         const BodyText(text: '|', color: Colors.white),
         const SizedBox(width: 5),
-        GestureDetector(
+        InkWell(
             onTap: () {
-              Navigator.pushNamed(context, ProductPageView.routeName);
+              Navigator.pushReplacementNamed(
+                  context, ProductPageView.routeName);
             },
             child: const BodyText(text: 'Products', color: Colors.white)),
         const SizedBox(width: 5),
