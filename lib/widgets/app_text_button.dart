@@ -6,6 +6,7 @@ class AppTextButton1 extends StatelessWidget {
   const AppTextButton1(
       {super.key,
       required this.label,
+       this.decoration,
       required this.function,
       this.textsize,
       this.textcolor});
@@ -13,6 +14,7 @@ class AppTextButton1 extends StatelessWidget {
   final VoidCallback function;
   final double? textsize;
   final Color? textcolor;
+  final TextDecoration? decoration;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -20,6 +22,7 @@ class AppTextButton1 extends StatelessWidget {
       hoverColor: AppColors.themeColor,
       child: SmallBodyText(
         text: label,
+        decoration: decoration,
         size: textsize,
         color: textcolor ?? AppColors.complementColor,
       ),

@@ -33,52 +33,105 @@ class _ProductItemCaroselState extends State<ProductItemCarosel> {
 
     bool widescreen = (ResponsiveScreenView.isDesktop(context) ||
         ResponsiveScreenView.isTablet(context));
-    return SizedBox(
-      height: widget.height ?? 400,
-      width: widescreen ? widget.width??370 : media.width * .9,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          CarouselSlider(
-              carouselController: _carouselController,
-              items: widget.images.map((e) {
-                return Container(
-                  padding: const EdgeInsets.all(10),
-                  height: widget.height ?? 400,
-                  width: widescreen ? widget.width??370 : media.width * .9,
-                  child: Image.asset(e),
-                );
-              }).toList(),
-              options: CarouselOptions(
-                  initialPage: 1, height: 400, viewportFraction: 1)),
-          SizedBox(
-            width: widescreen ? 340 : media.width * .8,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                AppImageIconButton(
-                  size: 35,
-                  image: 'assets/images/leftArrow.svg',
-                  function: () {
-                    setState(() {
-                      _carouselController.previousPage();
-                    });
-                  },
-                ),
-                AppImageIconButton(
-                  size: 35,
-                  image: 'assets/images/rightArrow.svg',
-                  function: () {
-                    setState(() {
-                      _carouselController.nextPage();
-                    });
-                  },
-                ),
-              ],
-            ),
-          )
-        ],
+    bool desktop = ResponsiveScreenView.isDesktop(context);
+    bool tablet = ResponsiveScreenView.isTablet(context);
+
+    List<Widget> a = widget.images
+        .map((e) => GestureDetector(
+              onTap: () {
+                _carouselController.jumpToPage(widget.images.indexOf(e));
+              },
+              child: Container(
+                height: 70,
+                width: 70,
+                margin: const EdgeInsets.all(5),
+                child: Image.asset(e),
+              ),
+            ))
+        .toList();
+
+    List<Widget> b = [
+      SizedBox(
+        height: widget.height ?? 400,
+        width: desktop
+            ? widget.width ?? 400
+            : tablet
+                ? media.width * .4
+                : media.width * .9,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            CarouselSlider(
+                carouselController: _carouselController,
+                items: widget.images.map((e) {
+                  return Container(
+                    padding: const EdgeInsets.all(10),
+                    height: widescreen ? widget.height ?? 400 : null,
+                    width: desktop
+                        ? widget.width ?? 400
+                        : tablet
+                            ? media.width * .4
+                            : media.width * .9,
+                    child: Image.asset(
+                      e,
+                      fit: BoxFit.fill,
+                    ),
+                  );
+                }).toList(),
+                options: CarouselOptions(
+                  initialPage: 1,
+                  height: 600,
+                  viewportFraction: 1,
+                )),
+            SizedBox(
+              width: desktop
+                  ? widget.width ?? 400
+                  : tablet
+                      ? media.width * .4
+                      : media.width * .8,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  AppImageIconButton(
+                    size: 35,
+                    image: 'assets/images/leftArrow.svg',
+                    function: () {
+                      setState(() {
+                        _carouselController.previousPage();
+                      });
+                    },
+                  ),
+                  AppImageIconButton(
+                    size: 35,
+                    image: 'assets/images/rightArrow.svg',
+                    function: () {
+                      setState(() {
+                        _carouselController.nextPage();
+                      });
+                    },
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
-    );
+      SizedBox(
+        width: desktop
+            ? widget.width
+            : tablet
+                ? media.width * .4
+                : media.width * .8,
+        // width: widescreen ? null : 400,
+        // height: widescreen ? 400 : null,
+        child: desktop
+            ? Column(children: a)
+            : SingleChildScrollView(
+                scrollDirection: Axis.horizontal, child: Row(children: a)),
+      ),
+      const SizedBox(height: 10, width: 10),
+    ];
+
+    return desktop ? Row(children: b) : Column(children: b);
   }
 }

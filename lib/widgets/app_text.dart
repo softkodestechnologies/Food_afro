@@ -131,7 +131,8 @@ class BodyText extends StatelessWidget {
       this.maxLines,
       this.softWrap,
       this.textAlign,
-      this.fontWeight, this.decoration});
+      this.fontWeight,
+      this.decoration});
   final Color? color;
   final String text;
   final int? maxLines;
@@ -172,7 +173,7 @@ class SmallBodyText extends StatelessWidget {
       this.maxLines,
       this.softWrap,
       this.textAlign,
-      this.fontWeight});
+      this.fontWeight, this.decoration});
   final Color? color;
   final String text;
   final int? maxLines;
@@ -181,6 +182,7 @@ class SmallBodyText extends StatelessWidget {
   final double? height;
   final TextAlign? textAlign;
   final TextOverflow? overflow;
+  final TextDecoration? decoration;
   final FontWeight? fontWeight;
   @override
   Widget build(BuildContext context) {
@@ -193,7 +195,7 @@ class SmallBodyText extends StatelessWidget {
       style: TextStyle(
         fontFamily: 'Satoshi',
         color: color ?? Colors.black,
-        fontSize: size ?? 14,
+        fontSize: size ?? 14,decoration: decoration,
         fontWeight: fontWeight ?? FontWeight.w400,
       ),
     );

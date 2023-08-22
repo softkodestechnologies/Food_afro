@@ -12,10 +12,11 @@ import 'package:provider/provider.dart';
 
 class AppPagenatedGrid extends StatefulWidget {
   const AppPagenatedGrid(
-      {super.key, required this.productList, this.numofRows});
+      {super.key, required this.productList, this.numofRows, this.numofColumns});
 
   final List<ProductDisplayCard> productList;
   final int? numofRows;
+  final int? numofColumns;
 
   @override
   State<AppPagenatedGrid> createState() => _AppPagenatedGridState();
@@ -45,7 +46,7 @@ class _AppPagenatedGridState extends State<AppPagenatedGrid> {
     // var media = MediaQuery.of(context).size;
     bool desktop = (ResponsiveScreenView.isDesktop(context));
     // bool tablet = (ResponsiveScreenView.isTablet(context));
-    int numOfColumn = (desktop ? 3 : 2);
+    int numOfColumn = widget.numofColumns??(desktop ? 3 : 2);
     //
     int sublistSize = desktop ? 15 : 14;
     int pagestotal = (widget.productList.length / sublistSize).floor();

@@ -14,10 +14,9 @@ class ProductListProvider with ChangeNotifier {
         images: [
           'assets/images/garri.png',
           'assets/images/bean.png',
+          'assets/images/bean.png',
           'assets/images/chin_chin.png',
-          'assets/images/drinks.png',
           'assets/images/oil.png',
-          'assets/images/fish.png',
         ],
         favourite: false),
     ProductDisplayCard(
@@ -31,10 +30,9 @@ class ProductListProvider with ChangeNotifier {
         images: [
           'assets/images/garri.png',
           'assets/images/bean.png',
+          'assets/images/bean.png',
           'assets/images/chin_chin.png',
-          'assets/images/drinks.png',
           'assets/images/oil.png',
-          'assets/images/fish.png',
         ],
         favourite: false),
     ProductDisplayCard(
@@ -48,10 +46,9 @@ class ProductListProvider with ChangeNotifier {
         images: [
           'assets/images/garri.png',
           'assets/images/bean.png',
+          'assets/images/bean.png',
           'assets/images/chin_chin.png',
-          'assets/images/drinks.png',
           'assets/images/oil.png',
-          'assets/images/fish.png',
         ],
         favourite: false),
     ProductDisplayCard(
@@ -65,10 +62,9 @@ class ProductListProvider with ChangeNotifier {
         images: [
           'assets/images/garri.png',
           'assets/images/bean.png',
+          'assets/images/bean.png',
           'assets/images/chin_chin.png',
-          'assets/images/drinks.png',
           'assets/images/oil.png',
-          'assets/images/fish.png',
         ],
         favourite: false),
     ProductDisplayCard(
@@ -82,10 +78,9 @@ class ProductListProvider with ChangeNotifier {
         images: [
           'assets/images/garri.png',
           'assets/images/bean.png',
+          'assets/images/bean.png',
           'assets/images/chin_chin.png',
-          'assets/images/drinks.png',
           'assets/images/oil.png',
-          'assets/images/fish.png',
         ],
         favourite: false),
     ProductDisplayCard(
@@ -99,10 +94,9 @@ class ProductListProvider with ChangeNotifier {
         images: [
           'assets/images/garri.png',
           'assets/images/bean.png',
+          'assets/images/bean.png',
           'assets/images/chin_chin.png',
-          'assets/images/drinks.png',
           'assets/images/oil.png',
-          'assets/images/fish.png',
         ],
         favourite: false),
     ProductDisplayCard(
@@ -116,10 +110,9 @@ class ProductListProvider with ChangeNotifier {
         images: [
           'assets/images/garri.png',
           'assets/images/bean.png',
+          'assets/images/bean.png',
           'assets/images/chin_chin.png',
-          'assets/images/drinks.png',
           'assets/images/oil.png',
-          'assets/images/fish.png',
         ],
         favourite: false),
     ProductDisplayCard(
@@ -133,10 +126,9 @@ class ProductListProvider with ChangeNotifier {
         images: [
           'assets/images/garri.png',
           'assets/images/bean.png',
+          'assets/images/bean.png',
           'assets/images/chin_chin.png',
-          'assets/images/drinks.png',
           'assets/images/oil.png',
-          'assets/images/fish.png',
         ],
         favourite: false),
     ProductDisplayCard(
@@ -150,10 +142,9 @@ class ProductListProvider with ChangeNotifier {
         images: [
           'assets/images/garri.png',
           'assets/images/bean.png',
+          'assets/images/bean.png',
           'assets/images/chin_chin.png',
-          'assets/images/drinks.png',
           'assets/images/oil.png',
-          'assets/images/fish.png',
         ],
         favourite: false),
     ProductDisplayCard(
@@ -167,10 +158,9 @@ class ProductListProvider with ChangeNotifier {
         images: [
           'assets/images/garri.png',
           'assets/images/bean.png',
+          'assets/images/bean.png',
           'assets/images/chin_chin.png',
-          'assets/images/drinks.png',
           'assets/images/oil.png',
-          'assets/images/fish.png',
         ],
         favourite: false),
     ProductDisplayCard(
@@ -184,10 +174,9 @@ class ProductListProvider with ChangeNotifier {
         images: [
           'assets/images/garri.png',
           'assets/images/bean.png',
+          'assets/images/bean.png',
           'assets/images/chin_chin.png',
-          'assets/images/drinks.png',
           'assets/images/oil.png',
-          'assets/images/fish.png',
         ],
         favourite: false),
     ProductDisplayCard(
@@ -201,10 +190,9 @@ class ProductListProvider with ChangeNotifier {
         images: [
           'assets/images/garri.png',
           'assets/images/bean.png',
+          'assets/images/bean.png',
           'assets/images/chin_chin.png',
-          'assets/images/drinks.png',
           'assets/images/oil.png',
-          'assets/images/fish.png',
         ],
         favourite: false),
     ProductDisplayCard(
@@ -218,10 +206,9 @@ class ProductListProvider with ChangeNotifier {
         images: [
           'assets/images/garri.png',
           'assets/images/bean.png',
+          'assets/images/bean.png',
           'assets/images/chin_chin.png',
-          'assets/images/drinks.png',
           'assets/images/oil.png',
-          'assets/images/fish.png',
         ],
         favourite: false),
     ProductDisplayCard(
@@ -235,10 +222,9 @@ class ProductListProvider with ChangeNotifier {
         images: [
           'assets/images/garri.png',
           'assets/images/bean.png',
+          'assets/images/bean.png',
           'assets/images/chin_chin.png',
-          'assets/images/drinks.png',
           'assets/images/oil.png',
-          'assets/images/fish.png',
         ],
         favourite: false),
     ProductDisplayCard(
@@ -1101,7 +1087,72 @@ class ProductListProvider with ChangeNotifier {
         favourite: false),
   ];
 
-  List<ProductDisplayCard> usercart = [];
+  List<ProductDisplayCard> usercart = [
+     ProductDisplayCard(
+        id: '1',
+        image: 'assets/images/garri.png',
+        title: 'White ijebo garri',
+        description:
+            'Product description should be written in this available space.',
+        price: 20,
+        stars: 5,
+        images: [
+          'assets/images/garri.png',
+          'assets/images/bean.png',
+          'assets/images/bean.png',
+          'assets/images/chin_chin.png',
+          'assets/images/oil.png',
+        ],
+        favourite: false),
+    ProductDisplayCard(
+        id: '2',
+        image: 'assets/images/garri.png',
+        title: 'White ijebo garri',
+        description:
+            'Product description should be written in this available space.',
+        price: 20,
+        stars: 5,
+        images: [
+          'assets/images/garri.png',
+          'assets/images/bean.png',
+          'assets/images/bean.png',
+          'assets/images/chin_chin.png',
+          'assets/images/oil.png',
+        ],
+        favourite: false),
+    ProductDisplayCard(
+        id: '3',
+        image: 'assets/images/garri.png',
+        title: 'White ijebo garri',
+        description:
+            'Product description should be written in this available space.',
+        price: 20,
+        stars: 5,
+        images: [
+          'assets/images/garri.png',
+          'assets/images/bean.png',
+          'assets/images/bean.png',
+          'assets/images/chin_chin.png',
+          'assets/images/oil.png',
+        ],
+        favourite: false),
+    ProductDisplayCard(
+        id: '4',
+        image: 'assets/images/garri.png',
+        title: 'White ijebo garri',
+        description:
+            'Product description should be written in this available space.',
+        price: 20,
+        stars: 4,
+        images: [
+          'assets/images/garri.png',
+          'assets/images/bean.png',
+          'assets/images/bean.png',
+          'assets/images/chin_chin.png',
+          'assets/images/oil.png',
+        ],
+        favourite: false),
+  ];
 
   ProductDisplayCard itemMatch(String id) {
     return allproducts.firstWhere((e) => e.id == id);
