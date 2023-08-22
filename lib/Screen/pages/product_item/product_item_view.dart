@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:food_afro_bean/Screen/pages/home_screen/home_page.dart';
+import 'package:food_afro_bean/Screen/pages/product_item/product_item_page.dart';
 import 'package:food_afro_bean/Screen/screen_widgets/footer/screen_footer.dart';
 import 'package:food_afro_bean/Screen/screen_widgets/header/screen_header.dart';
 import 'package:food_afro_bean/util/app_color.dart';
-// import 'package:food_afro_bean/util/responsive_screen.dart';
 
-class HomePageView extends StatefulWidget {
-  static const routeName = '/homepage';
-  const HomePageView({super.key});
-
+class ProductItemPageView extends StatefulWidget {
+  const ProductItemPageView({super.key, this.id});
+  static const routeName = '/product item page';
+  final String? id;
   @override
-  State<HomePageView> createState() => _HomePageViewState();
+  State<ProductItemPageView> createState() => _ProductItemPageViewState();
 }
 
-class _HomePageViewState extends State<HomePageView> {
+class _ProductItemPageViewState extends State<ProductItemPageView> {
   late final ScrollController _scrollController;
   bool _showFAB = false;
   @override
   void initState() {
-    // TODO: implement initState
+    // TODO: implement initStatew
     _scrollController = ScrollController();
 
     _scrollController.addListener(() {
@@ -54,17 +53,16 @@ class _HomePageViewState extends State<HomePageView> {
 
   @override
   Widget build(BuildContext context) {
-    // bool widescreen = (ResponsiveScreenView.isDesktop(context) ||
-    //     ResponsiveScreenView.isTablet(context));
     return Scaffold(
       body: Stack(
+        alignment: Alignment.topCenter,
         children: [
           SingleChildScrollView(
               controller: _scrollController,
               child: const Column(
                 children: [
                   SizedBox(height: 130),
-                  HomePage(),
+                  ProductItemScreen(),
                   ScreenFooter(),
                 ],
               )),

@@ -50,7 +50,8 @@ class HeroTitleText extends StatelessWidget {
       this.maxLines,
       this.softWrap,
       this.textAlign,
-      this.fontWeight});
+      this.fontWeight,
+      this.decoration});
   final Color? color;
   final String text;
   final int? maxLines;
@@ -60,6 +61,7 @@ class HeroTitleText extends StatelessWidget {
   final TextAlign? textAlign;
   final TextOverflow? overflow;
   final FontWeight? fontWeight;
+  final TextDecoration? decoration;
   @override
   Widget build(BuildContext context) {
     return Text(
@@ -70,6 +72,7 @@ class HeroTitleText extends StatelessWidget {
       overflow: overflow ?? TextOverflow.ellipsis,
       style: TextStyle(
         fontFamily: 'Satoshi',
+        decoration: decoration,
         color: color ?? AppColors.complementColor,
         fontSize: size ?? 50,
         fontWeight: fontWeight ?? FontWeight.w700,
@@ -128,7 +131,7 @@ class BodyText extends StatelessWidget {
       this.maxLines,
       this.softWrap,
       this.textAlign,
-      this.fontWeight});
+      this.fontWeight, this.decoration});
   final Color? color;
   final String text;
   final int? maxLines;
@@ -137,6 +140,7 @@ class BodyText extends StatelessWidget {
   final double? height;
   final TextAlign? textAlign;
   final TextOverflow? overflow;
+  final TextDecoration? decoration;
   final FontWeight? fontWeight;
   @override
   Widget build(BuildContext context) {
@@ -147,6 +151,7 @@ class BodyText extends StatelessWidget {
       textAlign: textAlign,
       overflow: overflow ?? TextOverflow.ellipsis,
       style: TextStyle(
+        decoration: decoration,
         fontFamily: 'Satoshi',
         color: color ?? Colors.black,
         fontSize: size ?? 14,

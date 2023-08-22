@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_afro_bean/Screen/pages/home_screen/widgets/home_soup_card.dart';
+import 'package:food_afro_bean/Screen/pages/product_item/product_item_view.dart';
 import 'package:food_afro_bean/model/home_soup_card_model.dart';
 import 'package:food_afro_bean/model/product_display_card.dart';
 import 'package:food_afro_bean/provider/product_lists_provider.dart';
@@ -85,6 +86,10 @@ class AppBodySpliteSection extends StatelessWidget {
             columnNum: numOfColumn,
             widgetList: productList
                 .map((e) => AppProductDisplayCard(
+                      onClick: () {
+                        Navigator.pushNamed(  context, ProductItemPageView.routeName,
+                          arguments: e.id);
+                      },
                       id: e.id,
                       image: e.image,
                       title: e.title,

@@ -8,7 +8,8 @@ class AppButton1 extends StatelessWidget {
       required this.label,
       required this.function,
       this.height,
-      this.width, this.widget});
+      this.width,
+      this.widget});
   final String label;
   final VoidCallback function;
   final double? height;
@@ -27,10 +28,11 @@ class AppButton1 extends StatelessWidget {
             color: AppColors.complementColor,
           ),
           alignment: Alignment.center,
-          child: widget??SmallBodyText(
-            text: label,
-            color: Colors.white,
-          )),
+          child: widget ??
+              SmallBodyText(
+                text: label,
+                color: Colors.white,
+              )),
     );
   }
 }
@@ -42,11 +44,13 @@ class AppButton2 extends StatelessWidget {
       required this.label,
       required this.function,
       this.height,
-      this.width});
+      this.width,
+      this.widget});
   final String label;
   final VoidCallback function;
   final double? height;
   final double? width;
+  final Widget? widget;
 
   @override
   Widget build(BuildContext context) {
@@ -63,10 +67,11 @@ class AppButton2 extends StatelessWidget {
                 color: AppColors.complementColor,
               )),
           alignment: Alignment.center,
-          child: SmallBodyText(
-            text: label,
-            color: AppColors.complementColor,
-          )),
+          child: widget ??
+              SmallBodyText(
+                text: label,
+                color: AppColors.complementColor,
+              )),
     );
   }
 }

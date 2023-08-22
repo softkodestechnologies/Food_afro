@@ -7,7 +7,7 @@ import 'package:food_afro_bean/widgets/app_image_icon_button.dart';
 import 'package:food_afro_bean/widgets/app_text.dart';
 
 class AppProductDisplayCard extends StatefulWidget {
-  AppProductDisplayCard({
+  const AppProductDisplayCard({
     super.key,
     required this.id,
     required this.image,
@@ -16,6 +16,7 @@ class AppProductDisplayCard extends StatefulWidget {
     required this.price,
     required this.stars,
     required this.fav,
+    required this.onClick,
     required this.addToCart,
     required this.isfavourite,
   });
@@ -26,6 +27,7 @@ class AppProductDisplayCard extends StatefulWidget {
   final double price;
   final double stars;
   final bool fav;
+  final VoidCallback onClick;
   final VoidCallback addToCart;
   final VoidCallback isfavourite;
 
@@ -80,64 +82,82 @@ class _AppProductDisplayCardState extends State<AppProductDisplayCard> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Align(
-              alignment: Alignment.center,
-              child: SizedBox(
-                ///change to image network later this is for test use only
+            InkWell(
+              onTap: widget.onClick,
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Align(
+                      alignment: Alignment.center,
+                      child: SizedBox(
+                        ///change to image network later this is for test use only
 
-                height: widescreen ? 270 : 200,
-                child: Image.asset(
-                  widget.image,
-                  fit: BoxFit.fill,
-                  // width: 200,
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            TitleText(
-              text: widget.title,
-              size: widescreen ? null : 14,
-            ),
-            const SizedBox(height: 10),
-            BodyText(
-              text: widget.description,
-              color: AppColors.textgray,
-              maxLines: 2,
-              size: widescreen ? null : 12,
-            ),
-            const SizedBox(height: 10),
-            TitleText(
-                text: '\$ ${widget.price}', color: AppColors.complementColor),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(
-                  (widget.stars >= 1) ? Icons.star : Icons.star_border_outlined,
-                  size: widescreen ? 19 : 16,
-                  color: AppColors.starColor,
-                ),
-                Icon(
-                  (widget.stars >= 2) ? Icons.star : Icons.star_border_outlined,
-                  size: widescreen ? 19 : 16,
-                  color: AppColors.starColor,
-                ),
-                Icon(
-                  (widget.stars >= 3) ? Icons.star : Icons.star_border_outlined,
-                  size: widescreen ? 19 : 16,
-                  color: AppColors.starColor,
-                ),
-                Icon(
-                  (widget.stars >= 4) ? Icons.star : Icons.star_border_outlined,
-                  size: widescreen ? 19 : 16,
-                  color: AppColors.starColor,
-                ),
-                Icon(
-                  (widget.stars == 5) ? Icons.star : Icons.star_border_outlined,
-                  size: widescreen ? 19 : 16,
-                  color: AppColors.starColor,
-                ),
-              ],
+                        height: widescreen ? 270 : 200,
+                        child: Image.asset(
+                          widget.image,
+                          fit: BoxFit.fill,
+                          // width: 200,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    TitleText(
+                      text: widget.title,
+                      size: widescreen ? null : 14,
+                    ),
+                    const SizedBox(height: 10),
+                    BodyText(
+                      text: widget.description,
+                      color: AppColors.textgray,
+                      maxLines: 2,
+                      size: widescreen ? null : 12,
+                    ),
+                    const SizedBox(height: 10),
+                    TitleText(
+                        text: '\$ ${widget.price}',
+                        color: AppColors.complementColor),
+                    const SizedBox(height: 10),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          (widget.stars >= 1)
+                              ? Icons.star
+                              : Icons.star_border_outlined,
+                          size: widescreen ? 19 : 16,
+                          color: AppColors.starColor,
+                        ),
+                        Icon(
+                          (widget.stars >= 2)
+                              ? Icons.star
+                              : Icons.star_border_outlined,
+                          size: widescreen ? 19 : 16,
+                          color: AppColors.starColor,
+                        ),
+                        Icon(
+                          (widget.stars >= 3)
+                              ? Icons.star
+                              : Icons.star_border_outlined,
+                          size: widescreen ? 19 : 16,
+                          color: AppColors.starColor,
+                        ),
+                        Icon(
+                          (widget.stars >= 4)
+                              ? Icons.star
+                              : Icons.star_border_outlined,
+                          size: widescreen ? 19 : 16,
+                          color: AppColors.starColor,
+                        ),
+                        Icon(
+                          (widget.stars == 5)
+                              ? Icons.star
+                              : Icons.star_border_outlined,
+                          size: widescreen ? 19 : 16,
+                          color: AppColors.starColor,
+                        ),
+                      ],
+                    ),
+                  ]),
             ),
             const SizedBox(height: 10),
             if (_containerHeight != 460)
