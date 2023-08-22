@@ -35,7 +35,8 @@ class FilterSection extends StatefulWidget {
     required this.fourstars,
     required this.fourstarsonchange,
     required this.threestars,
-    required this.threestarsonchange, this.function,
+    required this.threestarsonchange,
+    this.function,
   }) : super(key: key);
 
   final double? width;
@@ -155,7 +156,7 @@ class _FilterSectionState extends State<FilterSection> {
             const BodyMediumText(text: 'Prices Range'),
             BodyText(
               text:
-                  'Prices: \$ ${widget.rangeValues.start.toStringAsFixed(2)} - \$ ${widget.rangeValues.end.toStringAsFixed(2)}',
+                  'Prices: £ ${widget.rangeValues.start.toStringAsFixed(2)} - £ ${widget.rangeValues.end.toStringAsFixed(2)}',
               size: 13,
             ),
             SizedBox(

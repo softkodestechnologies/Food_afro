@@ -55,13 +55,13 @@ class ProductItemDetailsCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               HeroTitleText(
-                text: '\$ $price',
+                text: '£ $price',
                 size: 20,
                 decoration: discount ? TextDecoration.lineThrough : null,
               ),
               const SizedBox(width: 10),
               BodyText(
-                text: '\$ $discountedPrice',
+                text: '£ $discountedPrice',
                 color: Colors.black,
                 size: 14,
               )

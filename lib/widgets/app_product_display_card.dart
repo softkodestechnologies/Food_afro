@@ -114,7 +114,7 @@ class _AppProductDisplayCardState extends State<AppProductDisplayCard> {
                     ),
                     const SizedBox(height: 10),
                     TitleText(
-                        text: '\$ ${widget.price}',
+                        text: '£ ${widget.price}',
                         color: AppColors.complementColor),
                     const SizedBox(height: 10),
                     Row(

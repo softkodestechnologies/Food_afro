@@ -12,7 +12,10 @@ import 'package:provider/provider.dart';
 
 class AppPagenatedGrid extends StatefulWidget {
   const AppPagenatedGrid(
-      {super.key, required this.productList, this.numofRows, this.numofColumns});
+      {super.key,
+      required this.productList,
+      this.numofRows,
+      this.numofColumns});
 
   final List<ProductDisplayCard> productList;
   final int? numofRows;
@@ -46,7 +49,7 @@ class _AppPagenatedGridState extends State<AppPagenatedGrid> {
     // var media = MediaQuery.of(context).size;
     bool desktop = (ResponsiveScreenView.isDesktop(context));
     // bool tablet = (ResponsiveScreenView.isTablet(context));
-    int numOfColumn = widget.numofColumns??(desktop ? 3 : 2);
+    int numOfColumn = widget.numofColumns ?? (desktop ? 3 : 2);
     //
     int sublistSize = desktop ? 15 : 14;
     int pagestotal = (widget.productList.length / sublistSize).floor();
@@ -62,37 +65,37 @@ class _AppPagenatedGridState extends State<AppPagenatedGrid> {
 
 ////////////////////////////// PAGE LOGIC ///
 
-    int numPagesPerView = 4;
+    // int numPagesPerView = 4;
 
-    List<int> pages = [];
-    for (int i = 1; i <= pagestotal; i++) {
-      pages.add(i);
-      // print(i);
-    }
-    List<List<int>> pageList = [];
+    // List<int> pages = [];
+    // for (int i = 1; i <= pagestotal; i++) {
+    //   pages.add(i);
+    //   // print(i);
+    // }
+    // List<List<int>> pageList = [];
 
-    for (int i = 0; i < pages.length; i += numPagesPerView) {
-      int endIndex = i + numPagesPerView;
-      if (endIndex > pages.length) {
-        endIndex = pages.length;
-      }
-      pageList.add(pages.sublist(i, endIndex));
-    }
+    // for (int i = 0; i < pages.length; i += numPagesPerView) {
+    //   int endIndex = i + numPagesPerView;
+    //   if (endIndex > pages.length) {
+    //     endIndex = pages.length;
+    //   }
+    //   pageList.add(pages.sublist(i, endIndex));
+    // }
 
-    int pageIndex = 0;
+    // int pageIndex = 0;
 
-    String pag1 = (pageList[pageIndex][0] <= pageList[pageIndex].length)
-        ? pageList[pageIndex][0].toString()
-        : '';
-    String pag2 = (pageList[pageIndex][1] <= pageList[pageIndex].length)
-        ? pageList[pageIndex][1].toString()
-        : '';
-    String pag3 = (pageList[pageIndex][2] <= pageList[pageIndex].length)
-        ? pageList[pageIndex][2].toString()
-        : '';
-    String pag4 = (pageList[pageIndex][3] <= pageList[pageIndex].length)
-        ? pageList[pageIndex][3].toString()
-        : '';
+    // String pag1 = (pageList[pageIndex][0] <= pageList[pageIndex].length)
+    //     ? pageList[pageIndex][0].toString()
+    //     : '';
+    // String pag2 = (pageList[pageIndex][1] <= pageList[pageIndex].length)
+    //     ? pageList[pageIndex][1].toString()
+    //     : '';
+    // String pag3 = (pageList[pageIndex][2] <= pageList[pageIndex].length)
+    //     ? pageList[pageIndex][2].toString()
+    //     : '';
+    // String pag4 = (pageList[pageIndex][3] <= pageList[pageIndex].length)
+    //     ? pageList[pageIndex][3].toString()
+    //     : '';
 
     return SizedBox(
       child: Column(
@@ -135,7 +138,7 @@ class _AppPagenatedGridState extends State<AppPagenatedGrid> {
                   image: 'assets/images/leftArrow.svg',
                   function: () {
                     setState(() {
-                      pageIndex -= 1;
+                      // pageIndex -= 1;
 
                       if (currentpageNum != 0) {
                         currentpageNum -= 1;
@@ -146,67 +149,67 @@ class _AppPagenatedGridState extends State<AppPagenatedGrid> {
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 5),
                   width: 100,
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        AppTextButton1(
-                          label: pag1,
-                          textsize: 15,
-                          function: () {
-                            setState(() {
-                              currentpageNum = pageList[pageIndex][0];
-                            });
-                          },
-                          textcolor: (currentpageNum) == pageList[pageIndex][0]
-                              ? null
-                              : AppColors.textgray,
-                        ),
-                        AppTextButton1(
-                          label: pag2,
-                          textsize: 15,
-                          function: () {
-                            setState(() {
-                              currentpageNum = pageList[pageIndex][1];
-                            });
-                          },
-                          textcolor: (currentpageNum) == pageList[pageIndex][1]
-                              ? null
-                              : AppColors.textgray,
-                        ),
-                        AppTextButton1(
-                          label: pag3,
-                          textsize: 15,
-                          function: () {
-                            setState(() {
-                              currentpageNum = pageList[pageIndex][2];
-                            });
-                          },
-                          textcolor: currentpageNum == pageList[pageIndex][2]
-                              ? null
-                              : AppColors.textgray,
-                        ),
-                        AppTextButton1(
-                          label: pag4,
-                          textsize: 15,
-                          function: () {
-                            setState(() {
-                              if (pageList[pageIndex][3] <=
-                                  pageList[pageIndex].length) {}
-                              currentpageNum = pageList[pageIndex][3];
-                            });
-                          },
-                          textcolor: currentpageNum == pageList[pageIndex][3]
-                              ? null
-                              : AppColors.textgray,
-                        ),
-                      ]),
+                  // child: Row(
+                  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //     children: [
+                  //       AppTextButton1(
+                  //         label: pag1,
+                  //         textsize: 15,
+                  //         function: () {
+                  //           setState(() {
+                  //             currentpageNum = pageList[pageIndex][0];
+                  //           });
+                  //         },
+                  //         textcolor: (currentpageNum) == pageList[pageIndex][0]
+                  //             ? null
+                  //             : AppColors.textgray,
+                  //       ),
+                  //       AppTextButton1(
+                  //         label: pag2,
+                  //         textsize: 15,
+                  //         function: () {
+                  //           setState(() {
+                  //             currentpageNum = pageList[pageIndex][1];
+                  //           });
+                  //         },
+                  //         textcolor: (currentpageNum) == pageList[pageIndex][1]
+                  //             ? null
+                  //             : AppColors.textgray,
+                  //       ),
+                  //       AppTextButton1(
+                  //         label: pag3,
+                  //         textsize: 15,
+                  //         function: () {
+                  //           setState(() {
+                  //             currentpageNum = pageList[pageIndex][2];
+                  //           });
+                  //         },
+                  //         textcolor: currentpageNum == pageList[pageIndex][2]
+                  //             ? null
+                  //             : AppColors.textgray,
+                  //       ),
+                  //       AppTextButton1(
+                  //         label: pag4,
+                  //         textsize: 15,
+                  //         function: () {
+                  //           setState(() {
+                  //             if (pageList[pageIndex][3] <=
+                  //                 pageList[pageIndex].length) {}
+                  //             currentpageNum = pageList[pageIndex][3];
+                  //           });
+                  //         },
+                  //         textcolor: currentpageNum == pageList[pageIndex][3]
+                  //             ? null
+                  //             : AppColors.textgray,
+                  //       ),
+                  //     ]),
                 ),
                 AppImageIconButton(
                   size: 30,
                   image: 'assets/images/rightArrow.svg',
                   function: () {
                     setState(() {
-                      pageIndex += 1;
+                      // pageIndex += 1;
 
                       if (currentpageNum != pagestotal) {
                         currentpageNum += 1;
