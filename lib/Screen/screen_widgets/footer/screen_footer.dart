@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:food_afro_bean/Screen/pages/admin/admin_page_view.dart';
 import 'package:food_afro_bean/util/app_color.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
 import 'package:food_afro_bean/widgets/app_image_icon_button.dart';
@@ -17,7 +18,7 @@ class ScreenFooter extends StatelessWidget {
     // bool mobile = ResponsiveScreenView.isMobile(context);
     return Container(
       alignment: Alignment.center,
-      height: widescreen ? 300 : 750,
+      height: widescreen ? 310 : 750,
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,7 +26,7 @@ class ScreenFooter extends StatelessWidget {
           ////////////////////////////////  main bar
           Container(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-            height: widescreen ? 250 : 700,
+            height: widescreen ? 260 : 700,
             color: AppColors.themeColor,
             child: widescreen
                 ? const Row(
@@ -161,6 +162,12 @@ class FooterNavigation extends StatelessWidget {
           AppTextButton1(label: 'DELIVERY', function: () {}),
           const SizedBox(height: 10),
           AppTextButton1(label: 'CATERGORY', function: () {}),
+          const SizedBox(height: 10),
+          AppTextButton1(
+              label: 'ADMIN',
+              function: () {
+                Navigator.pushNamed(context, AdminScreen.routeName);
+              }),
         ],
       ),
     );

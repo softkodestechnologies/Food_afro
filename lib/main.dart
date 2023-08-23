@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_afro_bean/Screen/pages/admin/admin_page_view.dart';
 import 'package:food_afro_bean/Screen/pages/aut_screen/aut_screen.dart';
 // import 'package:food_afro_bean/Screen/pages/filter/filter_screen.dart';
 // import 'package:food_afro_bean/Screen/pages/home_screen/home_page.dart';
@@ -59,6 +60,7 @@ class MyApp extends StatelessWidget {
         ViewAllProductPageView.routeName:(context) => const ViewAllProductPageView(),
         ProductPageView.routeName: (context) => const ProductPageView(),
         ProductItemPageView.routeName :(context) => const ProductItemPageView(),
+        AdminScreen.routeName:(context)=> const  AdminScreen(),
       },
     );
   }
