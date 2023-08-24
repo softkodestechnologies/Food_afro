@@ -7,6 +7,7 @@ import 'package:food_afro_bean/Screen/pages/admin/sections/products.dart';
 import 'package:food_afro_bean/Screen/pages/admin/widgets/dash_board_buttons.dart';
 import 'package:food_afro_bean/util/app_color.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
+import 'package:food_afro_bean/widgets/app_image_icon_button.dart';
 import 'package:food_afro_bean/widgets/app_profileIandT.dart';
 
 class AdminScreen extends StatefulWidget {
@@ -18,6 +19,7 @@ class AdminScreen extends StatefulWidget {
 }
 
 class _AdminScreenState extends State<AdminScreen> {
+  Widget page = const AdminDashboardPage();
   final Widget dashboard = const AdminDashboardPage();
   final Widget products = const AdminProductPage();
   final Widget customers = const AdminCustomersPage();
@@ -30,17 +32,26 @@ class _AdminScreenState extends State<AdminScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Widget page = dashboard;
     var media = MediaQuery.of(context).size;
     bool desktop = ResponsiveScreenView.isDesktop(context);
     Widget drawer = Container(
       height: media.height,
       width: 250,
-      padding: const EdgeInsets.only(top: 50, left: 50),
+      padding: const EdgeInsets.only(top: 50, left: 50, right: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SvgPicture.asset('assets/images/logo3.svg'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SvgPicture.asset('assets/images/logo3.svg'),
+              if (!desktop)
+                AppImageIconButton(
+                  image: 'assets/images/close.svg',
+                  function: () => Navigator.pop(context),
+                )
+            ],
+          ),
           const SizedBox(height: 80),
           AdminDashBoardButton(
             image: 'assets/images/home2.svg',
@@ -82,6 +93,7 @@ class _AdminScreenState extends State<AdminScreen> {
               setState(() {
                 selectpage(4);
                 page = orders;
+                
               });
             },
             selected: pageselected == 4,
@@ -133,6 +145,8 @@ class _AdminScreenState extends State<AdminScreen> {
             : SingleChildScrollView(
                 scrollDirection: Axis.horizontal, child: page),
       ),
+      drawerEnableOpenDragGesture: true,
+      // drawerScrimColor: Colors.white,
     );
   }
 }

@@ -22,7 +22,7 @@ class ProductItemScreen extends StatelessWidget {
     final id = ModalRoute.of(context)?.settings.arguments as String;
     bool desktop = (ResponsiveScreenView.isDesktop(context));
     bool tablet = (ResponsiveScreenView.isTablet(context));
-    bool mobile = (ResponsiveScreenView.isMobile(context));
+    // bool mobile = (ResponsiveScreenView.isMobile(context));
     final data = provider.itemMatch(id);
     var media = MediaQuery.of(context).size;
     bool widescreen = (ResponsiveScreenView.isDesktop(context) ||
