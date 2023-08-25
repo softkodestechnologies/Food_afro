@@ -3,6 +3,8 @@ import 'package:food_afro_bean/Screen/pages/admin/widgets/admin_dropdown.dart';
 import 'package:food_afro_bean/Screen/pages/admin/widgets/admin_tables.dart';
 import 'package:food_afro_bean/Screen/pages/admin/widgets/admin_welcome_bar1.dart';
 import 'package:food_afro_bean/Screen/pages/admin/widgets/display_tag_info.dart';
+import 'package:food_afro_bean/Screen/pages/admin/widgets/tables/orders/order_table_bar.dart';
+import 'package:food_afro_bean/Screen/pages/admin/widgets/tables/orders/order_table_item.dart';
 import 'package:food_afro_bean/provider/dropdown_provider.dart';
 import 'package:food_afro_bean/util/app_color.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
@@ -93,10 +95,21 @@ class _AdminOrdersPageState extends State<AdminOrdersPage> {
                     title: 'Pending Orders'),
               ]),
             ),
-              AdminTable(
+            AdminTable(
               title: 'New Orders',
-              appbar: SizedBox(),
-              list: [],
+              appbar: OrderTableBar(onchange: (p0) {}, values: false),
+              list: [
+                OrderTableItem(
+                  onchange: (p0) {},
+                  values: false,
+                  productId: 'dscacda',
+                  orderDate: '22/22/22',
+                  productDetails: 'kbdjcsd',
+                  price: 232.3,
+                  quantity: 32,
+                  function: () {},
+                )
+              ],
             ),
           ],
         ),
