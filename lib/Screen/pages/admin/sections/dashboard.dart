@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:food_afro_bean/Screen/pages/admin/widgets/admin_dropdown.dart';
+import 'package:food_afro_bean/Screen/pages/admin/widgets/admin_tables.dart';
 import 'package:food_afro_bean/Screen/pages/admin/widgets/admin_welcome_bar1.dart';
 import 'package:food_afro_bean/Screen/pages/admin/widgets/dash_board_info_card.dart';
+import 'package:food_afro_bean/Screen/pages/admin/widgets/tables/dashborads/dasboard_table_item.dart';
+import 'package:food_afro_bean/Screen/pages/admin/widgets/tables/dashborads/dashboard_table_bar.dart';
 import 'package:food_afro_bean/provider/dropdown_provider.dart';
 import 'package:food_afro_bean/util/app_color.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
@@ -15,6 +18,8 @@ class AdminDashboardPage extends StatefulWidget {
 }
 
 class _AdminDashboardPageState extends State<AdminDashboardPage> {
+  bool selectall = false;
+
   @override
   Widget build(BuildContext context) {
     var dropdownprovider = Provider.of<DropDownProvider>(context);
@@ -112,7 +117,30 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
                     profit: true,
                     rate: '+500 Jul'),
               ]),
-            )
+            ),
+            AdminTable(
+              title: 'New Orders',
+              appbar: DashboradTableBar(
+                values: selectall,
+                onchange: (p0) {
+                  setState(() {
+                    selectall = p0!;
+                  });
+                },
+              ),
+              list: [
+                DashboardTableItem(
+                  onchange: (p0) {},
+                  values: false,
+                  productId: 'sjkanjknmdcxkjn',
+                  orderDate: '12/21/22',
+                  productDetails: 'dqwweddsadxcwxaswxmmjkkkkkjkkwexws',
+                  price: 12.2,
+                  quantity: 4,
+                  function: () {},
+                )
+              ],
+            ),
           ],
         ),
       ),

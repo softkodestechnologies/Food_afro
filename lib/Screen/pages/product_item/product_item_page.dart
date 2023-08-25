@@ -103,7 +103,7 @@ class ProductItemScreen extends StatelessWidget {
                             returnpolicy: () {},
                             samedaydelivery: () {},
                             discountedPrice:
-                                data.discountedPrice.toString() ?? '',
+                                data.discountedPrice.toString() ,
                             discount: data.discount ?? false),
                       ],
                     )
@@ -137,7 +137,7 @@ class ProductItemScreen extends StatelessWidget {
                           returnpolicy: () {},
                           samedaydelivery: () {},
                           discountedPrice:
-                              data.discountedPrice.toString() ?? '',
+                              data.discountedPrice.toString() ,
                           discount: data.discount ?? false),
                     ],
                   ),

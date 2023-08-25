@@ -102,8 +102,8 @@ class FilterCheckBox3 extends StatelessWidget {
   bool values;
   @override
   Widget build(BuildContext context) {
-    bool widescreen = (ResponsiveScreenView.isDesktop(context) ||
-        ResponsiveScreenView.isTablet(context));
+    // bool widescreen = (ResponsiveScreenView.isDesktop(context) ||
+    //     ResponsiveScreenView.isTablet(context));
     return Container(
       margin: const EdgeInsets.only(bottom: 10),
       child: Row(children: [

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:food_afro_bean/Screen/pages/admin/widgets/admin_dropdown.dart';
+import 'package:food_afro_bean/Screen/pages/admin/widgets/admin_tables.dart';
 import 'package:food_afro_bean/Screen/pages/admin/widgets/admin_welcome_bar1.dart';
+import 'package:food_afro_bean/Screen/pages/admin/widgets/display_tag_info.dart';
+import 'package:food_afro_bean/Screen/pages/admin/widgets/tables/custormers/custormer_table_bar.dart';
+import 'package:food_afro_bean/Screen/pages/admin/widgets/tables/custormers/custormers_table_item.dart';
 import 'package:food_afro_bean/provider/dropdown_provider.dart';
 import 'package:food_afro_bean/util/app_color.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
@@ -72,8 +76,35 @@ class _AdminCustomersPageState extends State<AdminCustomersPage> {
             const SizedBox(height: 35),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Row(children: []),
-            )
+              child: Row(children: [
+                DisplayTagInfo(
+                    image: 'assets/images/contact1.svg',
+                    value: '12,000',
+                    width: media.width <= 370 ? null : 350,
+                    title: 'Total Customers'),
+                DisplayTagInfo(
+                    image: 'assets/images/contact1.svg',
+                    value: '4,000',
+                    width: media.width <= 370 ? null : 350,
+                    title: 'New Customers'),
+                // const SizedBox( w)
+              ]),
+            ),
+            AdminTable(
+              title: 'Customers',
+              appbar: CustomersTableBar(onchange: (p0) {}, values: false),
+              list: [
+                CustomerTableItem(
+                  onchange: (p0) {},
+                  values: false,
+                  emailaddress: 'memyself@mindmybusiness.com',
+                  numberofpurchase: 30,
+                  totalamountspent: 30000000,
+                  signupdate: '22/22/22',
+                  function: () {},
+                )
+              ],
+            ),
           ],
         ),
       ),

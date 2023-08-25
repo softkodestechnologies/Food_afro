@@ -3,7 +3,7 @@ import 'package:food_afro_bean/util/app_color.dart';
 import 'package:food_afro_bean/widgets/app_text.dart';
 
 class AdminDropDown extends StatefulWidget {
-  AdminDropDown(
+  const AdminDropDown(
       {super.key,
       required this.value,
       required this.listItems,
@@ -12,16 +12,20 @@ class AdminDropDown extends StatefulWidget {
       this.textBlack,
       this.boldText,
       this.function,
-      this.color});
+      this.color, this.title, this.containercolor, this.titlecolor});
 
   final double? width;
   final double? height;
-  String value;
-  List<String> listItems;
+  final String? title;
+  final String value;
+  final List<String> listItems;
   final bool? textBlack;
+
   final bool? boldText;
   final Function(String)? function;
   final Color? color;
+    final Color? containercolor;
+   final Color? titlecolor;
   @override
   State<AdminDropDown> createState() => _AdminDropDownState();
 }
@@ -34,13 +38,13 @@ class _AdminDropDownState extends State<AdminDropDown> {
       width: widget.width ?? 160,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: widget.containercolor??  Colors.white,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        const BodyText(
-          text: 'Showing: ',
-          color: AppColors.textgray,
+         BodyText(
+          text:widget.title??'Showing: ',
+          color: widget.titlecolor?? AppColors.textgray,
         ),
         DropdownButton(
           // dropdownColor: AppColors.themeColor,
@@ -65,7 +69,6 @@ class _AdminDropDownState extends State<AdminDropDown> {
           onChanged: (String? newValue) {
             setState(() {
               widget.function?.call(newValue!);
-              widget.value = newValue!;
             });
           },
         ),

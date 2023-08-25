@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_afro_bean/Screen/pages/admin/widgets/admin_dropdown.dart';
+import 'package:food_afro_bean/Screen/pages/admin/widgets/admin_tables.dart';
 import 'package:food_afro_bean/Screen/pages/admin/widgets/admin_welcome_bar1.dart';
+import 'package:food_afro_bean/Screen/pages/admin/widgets/display_tag_info.dart';
 import 'package:food_afro_bean/provider/dropdown_provider.dart';
 import 'package:food_afro_bean/util/app_color.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
@@ -70,10 +72,32 @@ class _AdminOrdersPageState extends State<AdminOrdersPage> {
                     ],
                   ),
             const SizedBox(height: 35),
-            SingleChildScrollView(
+            const SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Row(children: []),
-            )
+              child: Row(children: [
+                DisplayTagInfo(
+                    image: 'assets/images/lista.svg',
+                    value: '12,000',
+                    title: 'Total Orders'),
+                DisplayTagInfo(
+                    image: 'assets/images/lista.svg',
+                    value: '12,000',
+                    title: 'New Orders'),
+                DisplayTagInfo(
+                    image: 'assets/images/lista.svg',
+                    value: '4,000',
+                    title: 'Cleared Orders'),
+                DisplayTagInfo(
+                    image: 'assets/images/lista.svg',
+                    value: '4,000',
+                    title: 'Pending Orders'),
+              ]),
+            ),
+              AdminTable(
+              title: 'New Orders',
+              appbar: SizedBox(),
+              list: [],
+            ),
           ],
         ),
       ),

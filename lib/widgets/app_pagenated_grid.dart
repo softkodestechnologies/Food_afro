@@ -45,7 +45,7 @@ class _AppPagenatedGridState extends State<AppPagenatedGrid> {
   Widget build(BuildContext context) {
     var provider = Provider.of<ProductListProvider>(
       context,
-    );
+    );  
     // var media = MediaQuery.of(context).size;
     bool desktop = (ResponsiveScreenView.isDesktop(context));
     // bool tablet = (ResponsiveScreenView.isTablet(context));
