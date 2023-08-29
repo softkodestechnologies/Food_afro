@@ -6,8 +6,10 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_afro_bean/Screen/pages/admin/widgets/admin_welcome_bar1.dart';
+import 'package:food_afro_bean/Screen/pages/admin/widgets/product_pic_remove.dart';
 import 'package:food_afro_bean/util/app_color.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
+import 'package:food_afro_bean/widgets/app_button.dart';
 import 'package:food_afro_bean/widgets/app_image_icon_button.dart';
 import 'package:food_afro_bean/widgets/app_text.dart';
 import 'package:food_afro_bean/widgets/app_text_field.dart';
@@ -41,7 +43,7 @@ class _AdminUploadProductDialogState extends State<AdminUploadProductDialog> {
     super.dispose();
   }
 
-  List<Widget> images = [];
+  List<String> images = [];
   void _pickAndDisplayImage() {
     final uploadInput = html.FileUploadInputElement()..accept = 'image/*';
     uploadInput.multiple = true;
@@ -55,15 +57,7 @@ class _AdminUploadProductDialogState extends State<AdminUploadProductDialog> {
 
         setState(() {
           images.add(
-            Container(
-              margin: const EdgeInsets.all(10),
-              width: 200,
-              height: 200,
-              child: Image.network(
-                imageUrl,
-                fit: BoxFit.fill,
-              ),
-            ),
+            imageUrl,
           );
         });
       }
@@ -131,7 +125,7 @@ class _AdminUploadProductDialogState extends State<AdminUploadProductDialog> {
               margin: const EdgeInsets.symmetric(vertical: 30),
               child: Row(children: [
                 const SizedBox(width: 5),
-                if (images.length <= 6)
+                if (images.length < 6)
                   InkWell(
                     onTap: _pickAndDisplayImage,
                     child: DottedBorder(
@@ -153,7 +147,14 @@ class _AdminUploadProductDialogState extends State<AdminUploadProductDialog> {
                   child: GridView.builder(
                       itemCount: images.length,
                       itemBuilder: (context, index) {
-                        return images[index];
+                        return ProductImageView(
+                          imageUrl: images[index],
+                          funtion: () {
+                            setState(() {
+                              images.removeAt(index);
+                            });
+                          },
+                        );
                       },
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
@@ -193,6 +194,7 @@ class _AdminUploadProductDialogState extends State<AdminUploadProductDialog> {
               value: productfeatures,
             ),
             const SizedBox(height: 20),
+            AppButton1(label: 'Add', function: () {})
           ],
         ),
       ),
