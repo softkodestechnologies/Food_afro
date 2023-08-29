@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_afro_bean/Screen/pages/admin/dialogs/admin_upload_product_dialog.dart';
+import 'package:food_afro_bean/Screen/pages/admin/dialogs/admin_upload_product_edit_dialog.dart';
 import 'package:food_afro_bean/Screen/pages/admin/widgets/admin_dropdown.dart';
 import 'package:food_afro_bean/Screen/pages/admin/widgets/admin_tables.dart';
 import 'package:food_afro_bean/Screen/pages/admin/widgets/admin_welcome_bar1.dart';
@@ -136,7 +137,17 @@ class _AdminProductPageState extends State<AdminProductPage> {
                   quantity: 33,
                   availableQuantity: 1010,
                   uploadDate: '20/2/22',
-                  function: () {},
+                  function: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return const Dialog(
+child: AdminUploadProductEditDialog(),
+
+                        );
+                      },
+                    );
+                  },
                 )
               ],
             ),

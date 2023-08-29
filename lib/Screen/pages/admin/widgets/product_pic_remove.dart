@@ -3,10 +3,14 @@ import 'package:food_afro_bean/widgets/app_button.dart';
 
 class ProductImageView extends StatefulWidget {
   const ProductImageView(
-      {super.key, required this.imageUrl, required this.funtion});
+      {super.key,
+      required this.imageUrl,
+      required this.funtion,
+      required this.showRemove});
 
   final String imageUrl;
   final VoidCallback funtion;
+  final bool showRemove;
 
   @override
   State<ProductImageView> createState() => _ProductImageViewState();
@@ -36,9 +40,11 @@ class _ProductImageViewState extends State<ProductImageView> {
               fit: BoxFit.fill,
             ),
           ),
-          show
-              ? AppButton2(
-                  label: 'Remove', width: 100, function: widget.funtion)
+          widget.showRemove
+              ? show
+                  ? AppButton2(
+                      label: 'Remove', width: 100, function: widget.funtion)
+                  : const SizedBox()
               : const SizedBox()
         ],
       ),

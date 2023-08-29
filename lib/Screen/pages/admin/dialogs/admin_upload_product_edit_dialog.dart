@@ -1,11 +1,7 @@
-import 'dart:html' as html;
-// import 'dart:typed_data';
-
 import 'package:dotted_border/dotted_border.dart';
-// import 'package:file_picker/_internal/file_picker_web.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:food_afro_bean/Screen/pages/admin/widgets/admin_welcome_bar1.dart';
+import 'dart:html' as html;
 import 'package:food_afro_bean/Screen/pages/admin/widgets/product_pic_remove.dart';
 import 'package:food_afro_bean/util/app_color.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
@@ -14,19 +10,21 @@ import 'package:food_afro_bean/widgets/app_image_icon_button.dart';
 import 'package:food_afro_bean/widgets/app_text.dart';
 import 'package:food_afro_bean/widgets/app_text_field.dart';
 
-class AdminUploadProductDialog extends StatefulWidget {
-  const AdminUploadProductDialog({super.key});
+class AdminUploadProductEditDialog extends StatefulWidget {
+  const AdminUploadProductEditDialog({super.key});
 
   @override
-  State<AdminUploadProductDialog> createState() =>
-      _AdminUploadProductDialogState();
+  State<AdminUploadProductEditDialog> createState() =>
+      _AdminUploadProductEditDialogState();
 }
 
-class _AdminUploadProductDialogState extends State<AdminUploadProductDialog> {
+class _AdminUploadProductEditDialogState
+    extends State<AdminUploadProductEditDialog> {
   late final TextEditingController productname;
   late final TextEditingController productdescription;
   late final TextEditingController productfeatures;
 
+  bool edit = false;
   @override
   void initState() {
     productname = TextEditingController();
@@ -43,7 +41,15 @@ class _AdminUploadProductDialogState extends State<AdminUploadProductDialog> {
     super.dispose();
   }
 
-  List<String> images = [];
+  List<String> images = [
+    'https://picsum.photos/250?image=9',
+    'https://picsum.photos/250?image=9',
+    'https://picsum.photos/250?image=9',
+    'https://picsum.photos/250?image=9',
+    'https://picsum.photos/250?image=9',
+    'https://picsum.photos/250?image=9',
+  ];
+
   void _pickAndDisplayImage() {
     final uploadInput = html.FileUploadInputElement()..accept = 'image/*';
     uploadInput.multiple = true;
@@ -67,9 +73,10 @@ class _AdminUploadProductDialogState extends State<AdminUploadProductDialog> {
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
-    // bool desktop = ResponsiveScreenView.isDesktop(context);
-    bool widescreen = (ResponsiveScreenView.isDesktop(context) ||
-        ResponsiveScreenView.isTablet(context));
+    bool desktop = ResponsiveScreenView.isDesktop(context);
+
+    // bool widescreen = (ResponsiveScreenView.isDesktop(context) ||
+    //     ResponsiveScreenView.isTablet(context));
     return Container(
       color: Colors.white,
       height: media.height * .9,
@@ -82,44 +89,51 @@ class _AdminUploadProductDialogState extends State<AdminUploadProductDialog> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            widescreen
-                ? Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const AdminWelcomeBar1(
-                          title: 'Upload new product',
-                          detail:
-                              'Lorem ipsum dolor sit amet consectetur. Lorem velit adipiscing mattis nam. Suspendisse sit facilisis erat metus libero nisi volutpat turpis.'),
-                      const Spacer(),
-                      AppImageIconButton(
-                        image: 'assets/images/close.svg',
-                        function: () {
-                          Navigator.pop(context);
-                        },
-                      ),     const SizedBox(width: 10)
-                    ],
-                  )
-                : Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: AppImageIconButton(
-                          image: 'assets/images/close.svg',
-                          function: () {
-                            Navigator.pop(context);
-                          },
-                        ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                HeaderBoldText(
+                  text: 'Product',
+                  size: desktop ? null : 17,
+                ),
+                const Spacer(),
+                const SizedBox(width: 10),
+                InkWell(
+                    onTap: () {
+                      setState(() {
+                        edit = !edit;
+                      });
+                    },
+                    child: Container(
+                      width: 90,
+                      margin: const EdgeInsets.symmetric(horizontal: 10),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: AppColors.backgroundGray,
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      const SizedBox(height: 20),
-                      const AdminWelcomeBar1(
-                          title: 'Upload new product',
-                          detail:
-                              'Lorem ipsum dolor sit amet consectetur. Lorem velit adipiscing mattis nam. Suspendisse sit facilisis erat metus libero nisi volutpat turpis.'),
-                    ],
-                  ),
-            const SizedBox(height: 20),
+                      height: 40,
+                      padding: const EdgeInsets.all(8),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SvgPicture.asset('assets/images/edit.svg'),
+                            SmallBodyText(
+                              text: edit ? 'Save' : 'Edit',
+                              color: AppColors.complementColor,
+                            )
+                          ]),
+                    )),
+                AppImageIconButton(
+                  image: 'assets/images/close.svg',
+                  function: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                const SizedBox(width: 10)
+              ],
+            ),
             Container(
               height: 300,
               margin: const EdgeInsets.symmetric(vertical: 30),
@@ -148,7 +162,7 @@ class _AdminUploadProductDialogState extends State<AdminUploadProductDialog> {
                       itemCount: images.length,
                       itemBuilder: (context, index) {
                         return ProductImageView(
-                          showRemove: true,
+                          showRemove: edit,
                           imageUrl: images[index],
                           funtion: () {
                             setState(() {
@@ -168,7 +182,7 @@ class _AdminUploadProductDialogState extends State<AdminUploadProductDialog> {
               fontWeight: FontWeight.w600,
             ),
             AppTextField(
-              edit: true,
+              edit: edit,
               hintText: 'Enter product name',
               value: productname,
             ),
@@ -178,7 +192,7 @@ class _AdminUploadProductDialogState extends State<AdminUploadProductDialog> {
               fontWeight: FontWeight.w600,
             ),
             AppTextField(
-              edit: true,
+              edit: edit,
               maxlines: 7,
               hintText: 'Describe product',
               value: productdescription,
@@ -189,13 +203,12 @@ class _AdminUploadProductDialogState extends State<AdminUploadProductDialog> {
               fontWeight: FontWeight.w600,
             ),
             AppTextField(
-              edit: true,
+              edit: edit,
               maxlines: 12,
               hintText: 'List Key Features',
               value: productfeatures,
             ),
             const SizedBox(height: 20),
-            AppButton1(label: 'Add', function: () {})
           ],
         ),
       ),

@@ -78,8 +78,8 @@ class ProductTableItem extends StatelessWidget {
             width: 50,
             borderBottom: true,
             fontSize: 13,
-            widget:
-                IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
+            widget: IconButton(
+                onPressed: function, icon: const Icon(Icons.more_vert)),
           ),
         ],
       ),
