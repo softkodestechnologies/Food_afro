@@ -5,7 +5,7 @@ import 'dart:html' as html;
 import 'package:food_afro_bean/Screen/pages/admin/widgets/product_pic_remove.dart';
 import 'package:food_afro_bean/util/app_color.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
-import 'package:food_afro_bean/widgets/app_button.dart';
+// import 'package:food_afro_bean/widgets/app_button.dart';
 import 'package:food_afro_bean/widgets/app_image_icon_button.dart';
 import 'package:food_afro_bean/widgets/app_text.dart';
 import 'package:food_afro_bean/widgets/app_text_field.dart';
@@ -89,93 +89,99 @@ class _AdminUploadProductEditDialogState
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                HeaderBoldText(
-                  text: 'Product',
-                  size: desktop ? null : 17,
-                ),
-                const Spacer(),
-                const SizedBox(width: 10),
-                InkWell(
-                    onTap: () {
-                      setState(() {
-                        edit = !edit;
-                      });
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  HeaderBoldText(
+                    text: 'Product',
+                    size: desktop ? null : 17,
+                  ),
+                  const Spacer(),
+                  const SizedBox(width: 10),
+                  InkWell(
+                      onTap: () {
+                        setState(() {
+                          edit = !edit;
+                        });
+                      },
+                      child: Container(
+                        width: 90,
+                        margin: const EdgeInsets.symmetric(horizontal: 10),
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: AppColors.backgroundGray,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        height: 40,
+                        padding: const EdgeInsets.all(8),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SvgPicture.asset('assets/images/edit.svg'),
+                              SmallBodyText(
+                                text: edit ? 'Save' : 'Edit',
+                                color: AppColors.complementColor,
+                              )
+                            ]),
+                      )),
+                  AppImageIconButton(
+                    image: 'assets/images/close.svg',
+                    function: () {
+                      Navigator.pop(context);
                     },
-                    child: Container(
-                      width: 90,
-                      margin: const EdgeInsets.symmetric(horizontal: 10),
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: AppColors.backgroundGray,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      height: 40,
-                      padding: const EdgeInsets.all(8),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SvgPicture.asset('assets/images/edit.svg'),
-                            SmallBodyText(
-                              text: edit ? 'Save' : 'Edit',
-                              color: AppColors.complementColor,
-                            )
-                          ]),
-                    )),
-                AppImageIconButton(
-                  image: 'assets/images/close.svg',
-                  function: () {
-                    Navigator.pop(context);
-                  },
-                ),
-                const SizedBox(width: 10)
-              ],
+                  ),
+                  const SizedBox(width: 10)
+                ],
+              ),
             ),
             Container(
               height: 300,
               margin: const EdgeInsets.symmetric(vertical: 30),
-              child: Row(children: [
-                const SizedBox(width: 5),
-                if (images.length < 6)
-                  InkWell(
-                    onTap: _pickAndDisplayImage,
-                    child: DottedBorder(
-                      radius: const Radius.circular(10),
-                      color: AppColors.complementColor,
-                      dashPattern: const [13],
-                      child: Container(
-                        width: 300,
-                        height: 300,
-                        alignment: Alignment.center,
-                        child: SvgPicture.asset('assets/images/upload.svg'),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(children: [
+                  const SizedBox(width: 5),
+                  if (images.length < 6)
+                    InkWell(
+                      onTap: _pickAndDisplayImage,
+                      child: DottedBorder(
+                        radius: const Radius.circular(10),
+                        color: AppColors.complementColor,
+                        dashPattern: const [13],
+                        child: Container(
+                          width: 300,
+                          height: 300,
+                          alignment: Alignment.center,
+                          child: SvgPicture.asset('assets/images/upload.svg'),
+                        ),
                       ),
                     ),
+                  const SizedBox(width: 10),
+                  SizedBox(
+                    width: 450,
+                    height: 450,
+                    child: GridView.builder(
+                        itemCount: images.length,
+                        itemBuilder: (context, index) {
+                          return ProductImageView(
+                            showRemove: edit,
+                            imageUrl: images[index],
+                            funtion: () {
+                              setState(() {
+                                images.removeAt(index);
+                              });
+                            },
+                          );
+                        },
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 3)),
                   ),
-                const SizedBox(width: 10),
-                SizedBox(
-                  width: 450,
-                  height: 450,
-                  child: GridView.builder(
-                      itemCount: images.length,
-                      itemBuilder: (context, index) {
-                        return ProductImageView(
-                          showRemove: edit,
-                          imageUrl: images[index],
-                          funtion: () {
-                            setState(() {
-                              images.removeAt(index);
-                            });
-                          },
-                        );
-                      },
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 3)),
-                ),
-              ]),
+                ]),
+              ),
             ),
             const BodyText(
               text: 'Product Name',

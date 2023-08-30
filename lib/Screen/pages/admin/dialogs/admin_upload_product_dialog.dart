@@ -97,7 +97,8 @@ class _AdminUploadProductDialogState extends State<AdminUploadProductDialog> {
                         function: () {
                           Navigator.pop(context);
                         },
-                      ),     const SizedBox(width: 10)
+                      ),
+                      const SizedBox(width: 10)
                     ],
                   )
                 : Column(
@@ -123,45 +124,48 @@ class _AdminUploadProductDialogState extends State<AdminUploadProductDialog> {
             Container(
               height: 300,
               margin: const EdgeInsets.symmetric(vertical: 30),
-              child: Row(children: [
-                const SizedBox(width: 5),
-                if (images.length < 6)
-                  InkWell(
-                    onTap: _pickAndDisplayImage,
-                    child: DottedBorder(
-                      radius: const Radius.circular(10),
-                      color: AppColors.complementColor,
-                      dashPattern: const [13],
-                      child: Container(
-                        width: 300,
-                        height: 300,
-                        alignment: Alignment.center,
-                        child: SvgPicture.asset('assets/images/upload.svg'),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(children: [
+                  const SizedBox(width: 5),
+                  if (images.length < 6)
+                    InkWell(
+                      onTap: _pickAndDisplayImage,
+                      child: DottedBorder(
+                        radius: const Radius.circular(10),
+                        color: AppColors.complementColor,
+                        dashPattern: const [13],
+                        child: Container(
+                          width: 300,
+                          height: 300,
+                          alignment: Alignment.center,
+                          child: SvgPicture.asset('assets/images/upload.svg'),
+                        ),
                       ),
                     ),
+                  const SizedBox(width: 10),
+                  SizedBox(
+                    width: 450,
+                    height: 450,
+                    child: GridView.builder(
+                        itemCount: images.length,
+                        itemBuilder: (context, index) {
+                          return ProductImageView(
+                            showRemove: true,
+                            imageUrl: images[index],
+                            funtion: () {
+                              setState(() {
+                                images.removeAt(index);
+                              });
+                            },
+                          );
+                        },
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 3)),
                   ),
-                const SizedBox(width: 10),
-                SizedBox(
-                  width: 450,
-                  height: 450,
-                  child: GridView.builder(
-                      itemCount: images.length,
-                      itemBuilder: (context, index) {
-                        return ProductImageView(
-                          showRemove: true,
-                          imageUrl: images[index],
-                          funtion: () {
-                            setState(() {
-                              images.removeAt(index);
-                            });
-                          },
-                        );
-                      },
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 3)),
-                ),
-              ]),
+                ]),
+              ),
             ),
             const BodyText(
               text: 'Product Name',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_afro_bean/Screen/pages/admin/dialogs/admin_order_dialog.dart';
 import 'package:food_afro_bean/Screen/pages/admin/widgets/admin_dropdown.dart';
 import 'package:food_afro_bean/Screen/pages/admin/widgets/admin_tables.dart';
 import 'package:food_afro_bean/Screen/pages/admin/widgets/admin_welcome_bar1.dart';
@@ -107,7 +108,16 @@ class _AdminOrdersPageState extends State<AdminOrdersPage> {
                   productDetails: 'kbdjcsd',
                   price: 232.3,
                   quantity: 32,
-                  function: () {},
+                  function: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return const Dialog(
+                          child: AdminOrderDialog(),
+                        );
+                      },
+                    );
+                  },
                 )
               ],
             ),
