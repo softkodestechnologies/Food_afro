@@ -8,31 +8,36 @@ class AppItemCount1 extends StatelessWidget {
     required this.lablel,
     required this.image,
     required this.count,
+    this.function,
   });
   final String lablel;
   final String image;
-  final double count;
+  final int count;
+  final VoidCallback? function;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      child: Row(children: [
-        BodyText(
-          text: lablel,
-          fontWeight: FontWeight.w400,
-          size: 16,
-        ),
-        const SizedBox(width: 3),
-        SvgPicture.asset(
-          image,
-          height: 20,
-          width: 20,
-        ),
-        const SizedBox(width: 3),
-        BodyMediumText(
-          text: '($count)',
-          size: 16,
-        )
-      ]),
+      child: InkWell(
+        onTap: function,
+        child: Row(children: [
+          BodyText(
+            text: lablel,
+            fontWeight: FontWeight.w400,
+            size: 16,
+          ),
+          const SizedBox(width: 3),
+          SvgPicture.asset(
+            image,
+            height: 20,
+            width: 20,
+          ),
+          const SizedBox(width: 3),
+          BodyMediumText(
+            text: '($count)',
+            size: 16,
+          )
+        ]),
+      ),
     );
   }
 }

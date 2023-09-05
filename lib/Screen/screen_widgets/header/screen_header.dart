@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_afro_bean/Screen/pages/aut_screen/aut_screen.dart';
+import 'package:food_afro_bean/Screen/pages/cart/cart_pageview.dart';
 import 'package:food_afro_bean/Screen/pages/home_screen/home_page_view.dart';
 import 'package:food_afro_bean/Screen/pages/product_screen/product_page_view.dart';
 import 'package:food_afro_bean/Screen/screen_widgets/header/screen_header_search_page.dart';
 import 'package:food_afro_bean/Screen/screen_widgets/header/screen_header_text_button_list.dart';
 import 'package:food_afro_bean/provider/auth_provider.dart';
+import 'package:food_afro_bean/provider/product_lists_provider.dart';
 import 'package:food_afro_bean/util/app_color.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
 import 'package:food_afro_bean/widgets/app_Item_count.dart';
@@ -128,6 +130,7 @@ class HeaderMobileSideMenu1 extends StatelessWidget {
   final VoidCallback menuFunction;
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<ProductListProvider>(context);
     bool widescreen = (ResponsiveScreenView.isDesktop(context) ||
         ResponsiveScreenView.isTablet(context));
     return SizedBox(
@@ -141,8 +144,13 @@ class HeaderMobileSideMenu1 extends StatelessWidget {
           ),
           SizedBox(
             child: Row(children: [
-              const AppItemCount1(
-                  lablel: 'Cart', image: 'assets/images/bag.svg', count: 4),
+              AppItemCount1(
+                  function: () {
+                    Navigator.pushNamed(context, CartPageView.routeName);
+                  },
+                  lablel: 'Cart',
+                  image: 'assets/images/bag.svg',
+                  count: provider.usercart.length),
               const SizedBox(width: 15),
               AppImageIconButton(
                   image: 'assets/images/search.svg',
@@ -228,6 +236,7 @@ class _HeaderMainBarState extends State<HeaderMainBar> {
         ResponsiveScreenView.isTablet(context));
 
     final authProvider = Provider.of<AuthProvider>(context);
+    var provider = Provider.of<ProductListProvider>(context);
     return AnimatedContainer(
       duration: const Duration(seconds: 1),
       width: double.infinity,
@@ -266,10 +275,14 @@ class _HeaderMainBarState extends State<HeaderMainBar> {
                             image: 'assets/images/lists.svg',
                             count: 4),
                       const Spacer(),
-                      const AppItemCount1(
+                      AppItemCount1(
                           lablel: 'Cart',
                           image: 'assets/images/bag.svg',
-                          count: 4),
+                          function: () {
+                            Navigator.pushNamed(
+                                context, CartPageView.routeName);
+                          },
+                          count: provider.usercart.length),
                     ]),
                   ),
                   const Spacer(),
@@ -323,8 +336,13 @@ class _HeaderMainBarState extends State<HeaderMainBar> {
                       fit: BoxFit.fill),
                 ),
                 const SizedBox(width: 50),
-                const AppItemCount1(
-                    lablel: 'Cart', image: 'assets/images/bag.svg', count: 4),
+                AppItemCount1(
+                    lablel: 'Cart',
+                    image: 'assets/images/bag.svg',
+                    function: () {
+                      Navigator.pushNamed(context, CartPageView.routeName);
+                    },
+                    count: provider.usercart.length),
                 const SizedBox(width: 50),
                 IconButton(
                     onPressed: widget.menuFuntion, icon: const Icon(Icons.menu))

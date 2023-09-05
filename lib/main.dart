@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_afro_bean/Screen/pages/admin/admin_page_view.dart';
 import 'package:food_afro_bean/Screen/pages/aut_screen/aut_screen.dart';
+import 'package:food_afro_bean/Screen/pages/cart/cart_pageview.dart';
 // import 'package:food_afro_bean/Screen/pages/filter/filter_screen.dart';
 // import 'package:food_afro_bean/Screen/pages/home_screen/home_page.dart';
 import 'package:food_afro_bean/Screen/pages/home_screen/home_page_view.dart';
@@ -53,14 +54,16 @@ class MyApp extends StatelessWidget {
       ),
       home: const HomePageView(),
       routes: {
-        HomePageView.routeName :(context) =>const HomePageView(),
+        HomePageView.routeName: (context) => const HomePageView(),
         ScreenHeaderSearchPage.routeName: (context) =>
             const ScreenHeaderSearchPage(),
         AuthScreen.routeName: (context) => const AuthScreen(),
-        ViewAllProductPageView.routeName:(context) => const ViewAllProductPageView(),
+        ViewAllProductPageView.routeName: (context) =>
+            const ViewAllProductPageView(),
         ProductPageView.routeName: (context) => const ProductPageView(),
-        ProductItemPageView.routeName :(context) => const ProductItemPageView(),
-        AdminScreen.routeName:(context)=> const  AdminScreen(),
+        ProductItemPageView.routeName: (context) => const ProductItemPageView(),
+        AdminScreen.routeName: (context) => const AdminScreen(),
+        CartPageView.routeName: (context) => const CartPageView(),
       },
     );
   }
