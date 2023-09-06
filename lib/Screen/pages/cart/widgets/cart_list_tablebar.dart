@@ -11,7 +11,7 @@ class CartTableBar extends StatelessWidget {
     bool desktop = ResponsiveScreenView.isDesktop(context);
     return Container(
       height: 30,
-      // width: desktop ? media.width * .6 : media.width,
+      width: desktop ? media.width * .6 : media.width * .9,
       decoration: const BoxDecoration(
         border: Border(
           bottom: BorderSide(
@@ -20,24 +20,20 @@ class CartTableBar extends StatelessWidget {
         ),
       ),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Container(
-          color: Colors.red,
+        SizedBox(
           width: (media.width * .3),
           child: const BodyText(text: 'Product'),
         ),
-        Container(
-          color: Colors.amber,
-          width: (media.width * .08) + 50,
+        SizedBox(
+          width: desktop ? (media.width * .1) : (media.width * .2),
           child: const BodyText(text: 'Price'),
         ),
-        Container(
-          color: Colors.green,
-          width: (media.width * .07) + 37,
+        SizedBox(
+          width: desktop ? (media.width * .1) : (media.width * .2),
           child: const BodyText(text: 'Quantity'),
         ),
-        Container(
-          color: Colors.blue,
-          width: (media.width * .05) + 75,
+        SizedBox(
+          width: desktop ? (media.width * .1) : (media.width * .2),
           child: const BodyText(text: 'Total Price'),
         ),
       ]),

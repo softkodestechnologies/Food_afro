@@ -389,8 +389,6 @@ class ProductListProvider with ChangeNotifier {
         price: 20,
         stars: 1,
         favourite: false),
- 
-   
   ];
 
   List<ProductDisplayCard> mostRequestedProducts = [
@@ -501,6 +499,11 @@ class ProductListProvider with ChangeNotifier {
 
   ProductDisplayCard itemMatch(String id) {
     return allproducts.firstWhere((e) => e.id == id);
+  }
+
+  void removefromcart(String id) {
+    usercart.remove(usercart.firstWhere((e) => e.id == id));
+    notifyListeners();
   }
 
   void addtocart(String id) {

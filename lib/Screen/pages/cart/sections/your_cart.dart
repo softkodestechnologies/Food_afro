@@ -22,7 +22,6 @@ class YourCartSection extends StatelessWidget {
       // height: desktop ? null : media.height * 8,
       width: desktop ? media.width * .6 : media.width,
       child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
         child: Column(children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -43,6 +42,7 @@ class YourCartSection extends StatelessWidget {
           const SizedBox(height: 20),
           SizedBox(
             child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
