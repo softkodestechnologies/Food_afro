@@ -326,6 +326,7 @@ class _CheckoutFieldsState extends State<CheckoutFields> {
                     googleapplepay
                   ],
                 ),
+          const SizedBox(height: 20)
         ],
       ),
     );

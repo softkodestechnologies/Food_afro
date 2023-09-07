@@ -18,31 +18,26 @@ class CartSummary extends StatelessWidget {
       padding: const EdgeInsets.all(15),
       height: 170,
       width: desktop ? media.width * .25 : media.width,
-      child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        const TitleText(text: 'Cart Summary'),
+        const SizedBox(height: 10),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const TitleText(text: 'Cart Summary'),
-            const SizedBox(height: 10),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const BodyText(text: 'Sub Total'),
-                BodyMediumText(text: '£ ${provider.totalamountInCart()}')
-              ],
-            ),
-            const SizedBox(height: 30),
-            AppButton1(
-              label: 'Checkout(£ ${provider.totalamountInCart()})',
-              function: () {
-                provider.checkout();
-                Navigator.pushReplacementNamed(
-                    context, CheckoutPageView.routeName);
-              },
-              width: desktop ? media.width * .25 : media.width,
-            )
-          ]),
+            const BodyText(text: 'Sub Total'),
+            BodyMediumText(text: '£ ${provider.totalamountInCart()}')
+          ],
+        ),
+        const SizedBox(height: 30),
+        AppButton1(
+          label: 'Checkout(£ ${provider.totalamountInCart()})',
+          function: () {
+            Navigator.pushReplacementNamed(context, CheckoutPageView.routeName);
+          },
+          width: desktop ? media.width * .25 : media.width,
+        )
+      ]),
     );
   }
 }

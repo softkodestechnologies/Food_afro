@@ -26,11 +26,20 @@ class CheckOutPage extends StatelessWidget {
         child: Column(
           children: [
             desktop
-                ? Row(
-                    children: [CheckoutFields(), CheckOutProductDetails()],
+                ? const Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CheckoutFields(),
+                      CheckOutProductDetails(),
+                    ],
                   )
-                : Column(
-                    children: [CheckoutFields(), CheckOutProductDetails()],
+                : const Column(
+                    children: [
+                      CheckoutFields(),
+                      SizedBox(height: 10),
+                      CheckOutProductDetails()
+                    ],
                   )
           ],
         ),
