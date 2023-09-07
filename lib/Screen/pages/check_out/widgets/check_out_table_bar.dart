@@ -20,8 +20,7 @@ class CheckoutTableBar extends StatelessWidget {
         ),
       ),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Container(
-          alignment: Alignment.center,
+        SizedBox(
           width: desktop ? (media.width * .2) : (media.width * .5),
           child: const BodyText(text: 'Product'),
         ),
