@@ -214,110 +214,47 @@ class ProductListProvider with ChangeNotifier {
         favourite: false),
   ];
 
-  List<ProductDisplayCard> mostRequestedProducts = [
-    ProductDisplayCard(
-        id: 'id1',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 5,
-        favourite: false),
-    ProductDisplayCard(
-        id: 'id2',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 5,
-        favourite: false),
-    ProductDisplayCard(
-        id: 'id3',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 5,
-        favourite: false),
-    ProductDisplayCard(
-        id: 'id4',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 4,
-        favourite: false),
-  ];
+  // List<ProductDisplayCard> mostRequestedProducts = [
+  //   ProductDisplayCard(
+  //       id: 'id1',
+  //       image: 'assets/images/garri.png',
+  //       title: 'White ijebo garri',
+  //       description:
+  //           'Product description should be written in this available space.',
+  //       price: 20,
+  //       stars: 5,
+  //       favourite: false),
+  //   ProductDisplayCard(
+  //       id: 'id2',
+  //       image: 'assets/images/garri.png',
+  //       title: 'White ijebo garri',
+  //       description:
+  //           'Product description should be written in this available space.',
+  //       price: 20,
+  //       stars: 5,
+  //       favourite: false),
+  //   ProductDisplayCard(
+  //       id: 'id3',
+  //       image: 'assets/images/garri.png',
+  //       title: 'White ijebo garri',
+  //       description:
+  //           'Product description should be written in this available space.',
+  //       price: 20,
+  //       stars: 5,
+  //       favourite: false),
+  //   ProductDisplayCard(
+  //       id: 'id4',
+  //       image: 'assets/images/garri.png',
+  //       title: 'White ijebo garri',
+  //       description:
+  //           'Product description should be written in this available space.',
+  //       price: 20,
+  //       stars: 4,
+  //       favourite: false),
+  // ];
 
   List<CartItemModel> usercart = [
-    // ProductDisplayCard(
-    //     id: 'id1',
-    //     image: 'assets/images/garri.png',
-    //     title: 'White ijebo garri',
-    //     description:
-    //         'Product description should be written in this available space.',
-    //     price: 20,
-    //     stars: 5,
-    //     images: [
-    //       'assets/images/garri.png',
-    //       'assets/images/bean.png',
-    //       'assets/images/bean.png',
-    //       'assets/images/chin_chin.png',
-    //       'assets/images/oil.png',
-    //     ],
-    //     favourite: false),
-    // ProductDisplayCard(
-    //     id: 'id2',
-    //     image: 'assets/images/garri.png',
-    //     title: 'White ijebo garri',
-    //     description:
-    //         'Product description should be written in this available space.',
-    //     price: 20,
-    //     stars: 5,
-    //     images: [
-    //       'assets/images/garri.png',
-    //       'assets/images/bean.png',
-    //       'assets/images/bean.png',
-    //       'assets/images/chin_chin.png',
-    //       'assets/images/oil.png',
-    //     ],
-    //     favourite: false),
-    // ProductDisplayCard(
-    //     id: 'id3',
-    //     image: 'assets/images/garri.png',
-    //     title: 'White ijebo garri',
-    //     description:
-    //         'Product description should be written in this available space.',
-    //     price: 20,
-    //     stars: 5,
-    //     images: [
-    //       'assets/images/garri.png',
-    //       'assets/images/bean.png',
-    //       'assets/images/bean.png',
-    //       'assets/images/chin_chin.png',
-    //       'assets/images/oil.png',
-    //     ],
-    //     favourite: false),
-    // ProductDisplayCard(
-    //     id: 'id4',
-    //     image: 'assets/images/garri.png',
-    //     title: 'White ijebo garri',
-    //     description:
-    //         'Product description should be written in this available space.',
-    //     price: 20,
-    //     stars: 4,
-    //     images: [
-    //       'assets/images/garri.png',
-    //       'assets/images/bean.png',
-    //       'assets/images/bean.png',
-    //       'assets/images/chin_chin.png',
-    //       'assets/images/oil.png',
-    //     ],
-    //     favourite: false),
+    
   ];
 
   void isfavourite(String id) {

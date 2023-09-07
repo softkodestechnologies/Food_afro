@@ -37,9 +37,10 @@ class _HomePageState extends State<HomePage> {
                 description:
                     'Discover our top-requested products across Europe!',
                 function: () {
-                  Navigator.pushReplacementNamed(context, ViewAllProductPageView.routeName);
+                  Navigator.pushReplacementNamed(
+                      context, ViewAllProductPageView.routeName);
                 },
-                productList: productlistprovider.mostRequestedProducts),
+                productList: productlistprovider.allproducts.sublist(1, 5)),
             const HomeCategorySection(
               title: 'Category',
               description:
@@ -49,7 +50,8 @@ class _HomePageState extends State<HomePage> {
                 title: 'Recommended products',
                 description: 'Explore essential products for your needs',
                 function: () {
-                  Navigator.pushReplacementNamed(context, ViewAllProductPageView.routeName);
+                  Navigator.pushReplacementNamed(
+                      context, ViewAllProductPageView.routeName);
                 },
                 productList: productlistprovider.allproducts),
             const HomeScreenWallpaper2Section(),
@@ -61,8 +63,9 @@ class _HomePageState extends State<HomePage> {
             AppBodySpliteSection(
                 title: 'Most requested products',
                 description: '',
-               function: () {
-                  Navigator.pushReplacementNamed(context, ViewAllProductPageView.routeName);
+                function: () {
+                  Navigator.pushReplacementNamed(
+                      context, ViewAllProductPageView.routeName);
                 },
                 productList: productlistprovider.allproducts),
           ],
