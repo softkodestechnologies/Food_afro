@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_afro_bean/model/cart_item.dart';
 import 'package:food_afro_bean/model/product_display_card.dart';
 import 'package:food_afro_bean/provider/product_lists_provider.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
@@ -9,15 +10,13 @@ import 'package:provider/provider.dart';
 
 class CartItem extends StatefulWidget {
   const CartItem({super.key, required this.productitem});
-  final ProductDisplayCard productitem;
+  final CartItemModel productitem;
 
   @override
   State<CartItem> createState() => _CartItemState();
 }
 
 class _CartItemState extends State<CartItem> {
-  int quantity = 1;
-
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<ProductListProvider>(context);
@@ -66,10 +65,8 @@ class _CartItemState extends State<CartItem> {
                                 label: 'Remove',
                                 textcolor: Colors.black,
                                 function: () {
-                                  setState(() {
-                                    provider
-                                        .removefromcart(widget.productitem.id);
-                                  });
+                                  provider
+                                      .removefromcart(widget.productitem.id);
                                 },
                                 decoration: TextDecoration.underline,
                               ),
@@ -107,10 +104,8 @@ class _CartItemState extends State<CartItem> {
                                 label: 'Remove',
                                 textcolor: Colors.black,
                                 function: () {
-                                  setState(() {
-                                    provider
-                                        .removefromcart(widget.productitem.id);
-                                  });
+                                  provider
+                                      .removefromcart(widget.productitem.id);
                                 },
                                 decoration: TextDecoration.underline,
                               ),
@@ -137,20 +132,14 @@ class _CartItemState extends State<CartItem> {
                     image: 'assets/images/subtract.svg',
                     size: 18,
                     function: () {
-                      setState(() {
-                        if (quantity != 0) {
-                          quantity -= 1;
-                        }
-                      });
+                      provider.decrementCartItem(widget.productitem.id);
                     }),
-                BodyText(text: '$quantity'),
+                BodyText(text: '${widget.productitem.quantity}'),
                 AppImageIconButton(
                     image: 'assets/images/add.svg',
                     size: 18,
                     function: () {
-                      setState(() {
-                        quantity += 1;
-                      });
+                      provider.incrementCartItem(widget.productitem.id);
                     }),
               ],
             ),
@@ -158,7 +147,9 @@ class _CartItemState extends State<CartItem> {
           SizedBox(
             width: desktop ? (media.width * .1) : (media.width * .2),
             // width: (media.width * .05) + 75,
-            child: BodyText(text: '£ ${quantity * widget.productitem.price}'),
+            child: BodyText(
+                text:
+                    '£ ${widget.productitem.quantity * widget.productitem.price}'),
           ),
         ],
       ),

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:food_afro_bean/model/cart_item.dart';
 import 'package:food_afro_bean/model/product_display_card.dart';
 
 class ProductListProvider with ChangeNotifier {
   List<ProductDisplayCard> allproducts = [
     ProductDisplayCard(
         id: '1',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
+        image: 'assets/images/bean.png',
+        title: 'Beans',
         description:
             'Product description should be written in this available space.',
         price: 20,
@@ -37,8 +38,8 @@ class ProductListProvider with ChangeNotifier {
         favourite: false),
     ProductDisplayCard(
         id: '3',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
+        image: 'assets/images/chin_chin.png',
+        title: 'Chin Chin',
         description:
             'Product description should be written in this available space.',
         price: 20,
@@ -53,8 +54,8 @@ class ProductListProvider with ChangeNotifier {
         favourite: false),
     ProductDisplayCard(
         id: '4',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
+        image: 'assets/images/oil.png',
+        title: 'Palm Oil',
         description:
             'Product description should be written in this available space.',
         price: 20,
@@ -211,189 +212,11 @@ class ProductListProvider with ChangeNotifier {
           'assets/images/oil.png',
         ],
         favourite: false),
-    ProductDisplayCard(
-        id: '14',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 1,
-        images: [
-          'assets/images/garri.png',
-          'assets/images/bean.png',
-          'assets/images/bean.png',
-          'assets/images/chin_chin.png',
-          'assets/images/oil.png',
-        ],
-        favourite: false),
-    ProductDisplayCard(
-        id: '15',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 1,
-        favourite: false),
-    ProductDisplayCard(
-        id: '16',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 1,
-        favourite: false),
-    ProductDisplayCard(
-        id: '17',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 1,
-        favourite: false),
-    ProductDisplayCard(
-        id: '18',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 1,
-        favourite: false),
-    ProductDisplayCard(
-        id: '19',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 1,
-        favourite: false),
-    ProductDisplayCard(
-        id: '20',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 1,
-        favourite: false),
-    ProductDisplayCard(
-        id: '21',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 1,
-        favourite: false),
-    ProductDisplayCard(
-        id: '22',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 1,
-        favourite: false),
-    ProductDisplayCard(
-        id: '23',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 1,
-        favourite: false),
-    ProductDisplayCard(
-        id: '24',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 1,
-        favourite: false),
-    ProductDisplayCard(
-        id: '25',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 1,
-        favourite: false),
-    ProductDisplayCard(
-        id: '26',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 1,
-        favourite: false),
-    ProductDisplayCard(
-        id: '27',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 1,
-        favourite: false),
-    ProductDisplayCard(
-        id: '28',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 1,
-        favourite: false),
-    ProductDisplayCard(
-        id: '29',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 1,
-        favourite: false),
-    ProductDisplayCard(
-        id: '30',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 1,
-        favourite: false),
-    ProductDisplayCard(
-        id: '31',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 1,
-        favourite: false),
-    ProductDisplayCard(
-        id: '32',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 1,
-        favourite: false),
   ];
 
   List<ProductDisplayCard> mostRequestedProducts = [
     ProductDisplayCard(
-        id: '1',
+        id: 'id1',
         image: 'assets/images/garri.png',
         title: 'White ijebo garri',
         description:
@@ -402,7 +225,7 @@ class ProductListProvider with ChangeNotifier {
         stars: 5,
         favourite: false),
     ProductDisplayCard(
-        id: '2',
+        id: 'id2',
         image: 'assets/images/garri.png',
         title: 'White ijebo garri',
         description:
@@ -411,7 +234,7 @@ class ProductListProvider with ChangeNotifier {
         stars: 5,
         favourite: false),
     ProductDisplayCard(
-        id: '3',
+        id: 'id3',
         image: 'assets/images/garri.png',
         title: 'White ijebo garri',
         description:
@@ -420,7 +243,7 @@ class ProductListProvider with ChangeNotifier {
         stars: 5,
         favourite: false),
     ProductDisplayCard(
-        id: '4',
+        id: 'id4',
         image: 'assets/images/garri.png',
         title: 'White ijebo garri',
         description:
@@ -430,86 +253,72 @@ class ProductListProvider with ChangeNotifier {
         favourite: false),
   ];
 
-  List<ProductDisplayCard> usercart = [
-    ProductDisplayCard(
-        id: '1',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 5,
-        images: [
-          'assets/images/garri.png',
-          'assets/images/bean.png',
-          'assets/images/bean.png',
-          'assets/images/chin_chin.png',
-          'assets/images/oil.png',
-        ],
-        favourite: false),
-    ProductDisplayCard(
-        id: '2',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 5,
-        images: [
-          'assets/images/garri.png',
-          'assets/images/bean.png',
-          'assets/images/bean.png',
-          'assets/images/chin_chin.png',
-          'assets/images/oil.png',
-        ],
-        favourite: false),
-    ProductDisplayCard(
-        id: '3',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 5,
-        images: [
-          'assets/images/garri.png',
-          'assets/images/bean.png',
-          'assets/images/bean.png',
-          'assets/images/chin_chin.png',
-          'assets/images/oil.png',
-        ],
-        favourite: false),
-    ProductDisplayCard(
-        id: '4',
-        image: 'assets/images/garri.png',
-        title: 'White ijebo garri',
-        description:
-            'Product description should be written in this available space.',
-        price: 20,
-        stars: 4,
-        images: [
-          'assets/images/garri.png',
-          'assets/images/bean.png',
-          'assets/images/bean.png',
-          'assets/images/chin_chin.png',
-          'assets/images/oil.png',
-        ],
-        favourite: false),
+  List<CartItemModel> usercart = [
+    // ProductDisplayCard(
+    //     id: 'id1',
+    //     image: 'assets/images/garri.png',
+    //     title: 'White ijebo garri',
+    //     description:
+    //         'Product description should be written in this available space.',
+    //     price: 20,
+    //     stars: 5,
+    //     images: [
+    //       'assets/images/garri.png',
+    //       'assets/images/bean.png',
+    //       'assets/images/bean.png',
+    //       'assets/images/chin_chin.png',
+    //       'assets/images/oil.png',
+    //     ],
+    //     favourite: false),
+    // ProductDisplayCard(
+    //     id: 'id2',
+    //     image: 'assets/images/garri.png',
+    //     title: 'White ijebo garri',
+    //     description:
+    //         'Product description should be written in this available space.',
+    //     price: 20,
+    //     stars: 5,
+    //     images: [
+    //       'assets/images/garri.png',
+    //       'assets/images/bean.png',
+    //       'assets/images/bean.png',
+    //       'assets/images/chin_chin.png',
+    //       'assets/images/oil.png',
+    //     ],
+    //     favourite: false),
+    // ProductDisplayCard(
+    //     id: 'id3',
+    //     image: 'assets/images/garri.png',
+    //     title: 'White ijebo garri',
+    //     description:
+    //         'Product description should be written in this available space.',
+    //     price: 20,
+    //     stars: 5,
+    //     images: [
+    //       'assets/images/garri.png',
+    //       'assets/images/bean.png',
+    //       'assets/images/bean.png',
+    //       'assets/images/chin_chin.png',
+    //       'assets/images/oil.png',
+    //     ],
+    //     favourite: false),
+    // ProductDisplayCard(
+    //     id: 'id4',
+    //     image: 'assets/images/garri.png',
+    //     title: 'White ijebo garri',
+    //     description:
+    //         'Product description should be written in this available space.',
+    //     price: 20,
+    //     stars: 4,
+    //     images: [
+    //       'assets/images/garri.png',
+    //       'assets/images/bean.png',
+    //       'assets/images/bean.png',
+    //       'assets/images/chin_chin.png',
+    //       'assets/images/oil.png',
+    //     ],
+    //     favourite: false),
   ];
-
-  ProductDisplayCard itemMatch(String id) {
-    return allproducts.firstWhere((e) => e.id == id);
-  }
-
-  void removefromcart(String id) {
-    usercart.remove(usercart.firstWhere((e) => e.id == id));
-    notifyListeners();
-  }
-
-  void addtocart(String id) {
-    usercart.add(allproducts.firstWhere((e) => e.id == id));
-    notifyListeners();
-  }
 
   void isfavourite(String id) {
     var product = allproducts.firstWhere((e) => e.id == id);
@@ -517,4 +326,74 @@ class ProductListProvider with ChangeNotifier {
 
     notifyListeners();
   }
+
+  ProductDisplayCard itemMatch(String id) {
+    return allproducts.firstWhere((e) => e.id == id);
+  }
+
+  void removefromcart(String id) {
+    usercart.removeWhere((e) => e.id == id);
+    notifyListeners();
+  }
+
+  void addtocart(String id) {
+    var product = allproducts.firstWhere((e) => e.id == id);
+    var cartItem = CartItemModel(
+      id: product.id,
+      image: product.image,
+      title: product.title,
+      description: product.description,
+      price: product.price,
+      stars: product.stars,
+      favourite: product.favourite,
+      quantity: 1,
+      totalPrice: product.price, // Set the total price as needed
+    );
+
+    usercart.add(cartItem);
+    notifyListeners();
+  }
+
+  // total Amount in cart
+  double totalamountInCart() {
+    double total = 0.0;
+
+    for (var e in usercart) {
+      total = total + (e.price * e.quantity);
+    }
+
+    return total;
+  }
+
+  /// to add quantity
+  void incrementCartItem(String id) {
+    var cartitem = usercart.firstWhere((e) => e.id == id);
+
+    cartitem.quantity += 1;
+
+    // totalamountInCart();
+    notifyListeners();
+  }
+
+  /// to decriment quantity
+  void decrementCartItem(String id) {
+    var cartitem = usercart.firstWhere((e) => e.id == id);
+    if (cartitem.quantity != 0) {
+      cartitem.quantity -= 1;
+    }
+    // totalamountInCart();
+    notifyListeners();
+  }
+
+  void checkout() {
+    usercart.clear();
+    notifyListeners();
+  }
+
+  // void addtocart(String id) {
+  //   usercart.add(
+
+  //     allproducts.firstWhere((e) => e.id == id));
+  //   notifyListeners();
+  // }
 }

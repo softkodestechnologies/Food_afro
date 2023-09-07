@@ -5,7 +5,7 @@ import 'package:food_afro_bean/util/responsive_screen.dart';
 import 'package:food_afro_bean/widgets/app_text.dart';
 
 class FilterCheckBox1 extends StatelessWidget {
-  FilterCheckBox1({
+  const FilterCheckBox1({
     Key? key,
     required this.label,
     required this.count,
@@ -14,7 +14,7 @@ class FilterCheckBox1 extends StatelessWidget {
   }) : super(key: key);
   final String label;
   final int count;
-  bool values;
+  final bool values;
   final Function(bool?) onchange;
 
   @override
@@ -59,7 +59,7 @@ class FilterCheckBox1 extends StatelessWidget {
 ///
 ///
 class FilterCheckBox2 extends StatelessWidget {
-  FilterCheckBox2({
+  const FilterCheckBox2({
     Key? key,
     required this.label,
     required this.onchange,
@@ -67,7 +67,7 @@ class FilterCheckBox2 extends StatelessWidget {
   }) : super(key: key);
   final String label;
 
-  bool values;
+  final bool values;
   final Function(bool?) onchange;
 
   @override
@@ -91,7 +91,7 @@ class FilterCheckBox2 extends StatelessWidget {
 //
 
 class FilterCheckBox3 extends StatelessWidget {
-  FilterCheckBox3(
+  const FilterCheckBox3(
       {super.key,
       required this.stars,
       required this.onchange,
@@ -99,7 +99,7 @@ class FilterCheckBox3 extends StatelessWidget {
 
   final int stars;
   final Function(bool?) onchange;
-  bool values;
+  final bool values;
   @override
   Widget build(BuildContext context) {
     // bool widescreen = (ResponsiveScreenView.isDesktop(context) ||

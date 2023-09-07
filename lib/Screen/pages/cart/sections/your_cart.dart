@@ -13,7 +13,7 @@ class YourCartSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<ProductListProvider>(context);
+    var provider = Provider.of<ProductListProvider>(context, listen: true);
     var media = MediaQuery.of(context).size;
 
     bool desktop = ResponsiveScreenView.isDesktop(context);
@@ -47,10 +47,18 @@ class YourCartSection extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const CartTableBar(),
+                    // ListView.builder(
+                    //   shrinkWrap: true,
+                    //   itemCount: provider.usercart.length,
+                    //   itemBuilder: (context, index) => CartItem(
+                    //     productitem: provider.usercart[index],
+                    //   ),
+                    // ),
                     Column(
-                        children: provider.usercart
-                            .map((e) => CartItem(productitem: e))
-                            .toList()),
+                      children: provider.usercart
+                          .map((e) => CartItem(productitem: e))
+                          .toList(),
+                    ),
                     AppTextButton1(
                         label: 'Continue Shopping',
                         textcolor: Colors.black,
