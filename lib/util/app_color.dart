@@ -8,4 +8,5 @@ class AppColors {
   static const starColor = Color.fromRGBO(242, 171, 55, 1);
   static const backgroundGray = Color.fromRGBO(245, 245, 245, 1);
   static const textgray = Color.fromRGBO(132, 132, 132, 1);
+  static const textBlack = Color.fromRGBO(30, 34, 27, 1);
 }

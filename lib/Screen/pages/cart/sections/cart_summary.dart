@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_afro_bean/Screen/pages/check_out/check_out_pageview.dart';
 import 'package:food_afro_bean/provider/product_lists_provider.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
 import 'package:food_afro_bean/widgets/app_button.dart';
@@ -36,6 +37,8 @@ class CartSummary extends StatelessWidget {
               label: 'Checkout(£ ${provider.totalamountInCart()})',
               function: () {
                 provider.checkout();
+                Navigator.pushReplacementNamed(
+                    context, CheckoutPageView.routeName);
               },
               width: desktop ? media.width * .25 : media.width,
             )

@@ -5,6 +5,7 @@ import 'package:food_afro_bean/Screen/pages/admin/sections/dashboard.dart';
 import 'package:food_afro_bean/Screen/pages/admin/sections/orders.dart';
 import 'package:food_afro_bean/Screen/pages/admin/sections/products.dart';
 import 'package:food_afro_bean/Screen/pages/admin/widgets/dash_board_buttons.dart';
+import 'package:food_afro_bean/Screen/pages/home_screen/home_page_view.dart';
 import 'package:food_afro_bean/util/app_color.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
 import 'package:food_afro_bean/widgets/app_image_icon_button.dart';
@@ -44,7 +45,10 @@ class _AdminScreenState extends State<AdminScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SvgPicture.asset('assets/images/logo3.svg'),
+              InkWell(
+                  onTap: () => Navigator.pushReplacementNamed(
+                      context, HomePageView.routeName),
+                  child: SvgPicture.asset('assets/images/logo3.svg')),
               if (!desktop)
                 AppImageIconButton(
                   image: 'assets/images/close.svg',
@@ -93,7 +97,6 @@ class _AdminScreenState extends State<AdminScreen> {
               setState(() {
                 selectpage(4);
                 page = orders;
-                
               });
             },
             selected: pageselected == 4,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_afro_bean/model/cart_item.dart';
-import 'package:food_afro_bean/model/product_display_card.dart';
 import 'package:food_afro_bean/provider/product_lists_provider.dart';
 import 'package:food_afro_bean/util/responsive_screen.dart';
 import 'package:food_afro_bean/widgets/app_image_icon_button.dart';
