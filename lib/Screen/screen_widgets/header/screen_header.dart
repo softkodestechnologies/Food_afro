@@ -139,8 +139,9 @@ class HeaderMobileSideMenu1 extends StatelessWidget {
         children: [
           SizedBox(
             height: widescreen ? 40 : 30,
-            width: widescreen ? 75 : 45,
-            child: SvgPicture.asset('assets/images/logo.svg', fit: BoxFit.fill),
+            width: widescreen ? 85 : 55,
+            child:
+                SvgPicture.asset('assets/images/logo3.svg', fit: BoxFit.fill),
           ),
           SizedBox(
             child: Row(children: [
@@ -250,11 +251,11 @@ class _HeaderMainBarState extends State<HeaderMainBar> {
                 child: Row(children: [
                   SizedBox(
                     height: widescreen ? 40 : 25,
-                    width: widescreen ? 75 : 35,
-                    child: SvgPicture.asset('assets/images/logo.svg',
+                    width: widescreen ? 85 : 45,
+                    child: SvgPicture.asset('assets/images/logo3.svg',
                         fit: BoxFit.fill),
                   ),
-                  const SizedBox(width: 15),
+                  const SizedBox(width: 5),
                   AppSearchBar1(
                     width: 315,
                     searchQuery: '',
@@ -331,11 +332,11 @@ class _HeaderMainBarState extends State<HeaderMainBar> {
                 const SizedBox(width: 5),
                 SizedBox(
                   height: widescreen ? 40 : 30,
-                  width: widescreen ? 75 : 45,
-                  child: SvgPicture.asset('assets/images/logo.svg',
+                  width: widescreen ? 105 : 75,
+                  child: SvgPicture.asset('assets/images/logo3.svg',
                       fit: BoxFit.fill),
                 ),
-                const SizedBox(width: 50),
+                const SizedBox(width: 20),
                 AppItemCount1(
                     lablel: 'Cart',
                     image: 'assets/images/bag.svg',
